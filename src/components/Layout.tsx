@@ -1,13 +1,7 @@
-import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import ButtonMenu from './Buttons/ButtonMenu'
 
 export default function Layout() {
-  const [menu, setMenu] = useState('MainPage')
-
-  const changeButton = (value: string) => {
-    setMenu(value)
-  }
   return (
     <>
       <header className="max-w-[1440px] mx-auto flex justify-between my-4">
@@ -32,11 +26,11 @@ export default function Layout() {
         </div>
       </header>
       <menu className="flex gap-20 justify-center pt-5 bg-[#F4F5F7] mb-14 text-sm font-montserrat">
-        <ButtonMenu section="MainPage" menu={menu} changeButton={changeButton}>Головна</ButtonMenu>
-        <ButtonMenu section="catalog" menu={menu} changeButton={changeButton}>Каталог</ButtonMenu>
-        <ButtonMenu section="services" menu={menu} changeButton={changeButton}>Послуги</ButtonMenu>
-        <ButtonMenu section="AboutUs" menu={menu} changeButton={changeButton}>Про нас</ButtonMenu>
-        <ButtonMenu section="contacts" menu={menu} changeButton={changeButton}>Контакти</ButtonMenu>
+        <ButtonMenu section="MainPage">Головна</ButtonMenu>
+        <ButtonMenu section="Catalog">Каталог</ButtonMenu>
+        <ButtonMenu section="Services">Послуги</ButtonMenu>
+        <ButtonMenu section="AboutUs">Про нас</ButtonMenu>
+        <ButtonMenu section="Contacts">Контакти</ButtonMenu>
       </menu>
       <Outlet />
       <footer></footer>

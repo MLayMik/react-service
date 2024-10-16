@@ -1,17 +1,24 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 interface ButtonMenuProps {
   children: string
-  changeButton: (section: string) => void
-  menu: string
   section: string
 }
 
-export default function ButtonMenu({ children, changeButton, menu, section }: ButtonMenuProps) {
+export default function ButtonMenu({ children, section }: ButtonMenuProps) {
   return (
     <div className="mb-4">
-      <Link to={`${section}`} onClick={() => changeButton(section)} className={menu === section ? 'font-bold' : undefined}>{children}</Link>
-      {section === menu && <div className="h-0.5 bg-black"></div>}
+      <NavLink
+        to={`${section}`}
+        className={({ isActive }) => (isActive ? 'font-bold' : undefined)}
+      >
+        {({ isActive }) => (
+          <div className="flex flex-col items-center">
+            {children}
+            {isActive && <div className="h-0.5 bg-black mt-2 w-full"></div>}
+          </div>
+        )}
+      </NavLink>
     </div>
   )
 }
