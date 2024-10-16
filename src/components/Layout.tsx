@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import ButtonMenu from './Buttons/ButtonMenu'
 
 export default function Layout() {
-  const [menu, setMenu] = useState('Main')
+  const [menu, setMenu] = useState('MainPage')
 
   const changeButton = (value: string) => {
     setMenu(value)
