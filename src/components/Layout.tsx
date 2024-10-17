@@ -2,6 +2,13 @@ import { Outlet } from 'react-router-dom'
 import ButtonMenu from './Buttons/ButtonMenu'
 
 export default function Layout() {
+  const menuItems = [
+    { section: 'MainPage', label: 'Головна' },
+    { section: 'Catalog', label: 'Каталог' },
+    { section: 'Services', label: 'Послуги' },
+    { section: 'AboutUs', label: 'Про нас' },
+    { section: 'Contacts', label: 'Контакти' },
+  ]
   return (
     <>
       <header className="max-w-[1440px] mx-auto flex justify-between my-4">
@@ -26,11 +33,7 @@ export default function Layout() {
         </div>
       </header>
       <menu className="flex gap-20 justify-center pt-5 bg-[#F4F5F7] mb-14 text-sm font-montserrat">
-        <ButtonMenu section="MainPage">Головна</ButtonMenu>
-        <ButtonMenu section="Catalog">Каталог</ButtonMenu>
-        <ButtonMenu section="Services">Послуги</ButtonMenu>
-        <ButtonMenu section="AboutUs">Про нас</ButtonMenu>
-        <ButtonMenu section="Contacts">Контакти</ButtonMenu>
+        {menuItems.map(item => <ButtonMenu key={item.section} section={item.section}>{item.label}</ButtonMenu>)}
       </menu>
       <Outlet />
       <footer></footer>
