@@ -21,7 +21,7 @@ export default function BlogPage() {
     <div className="max-w-[1440px] mx-auto">
       {posts.map((post) => {
         return (
-          <Link key={post.id} to={`/post/${post.id}`}><li>{post.title}</li></Link>
+          <Link key={post.id} to={`/posts/${post.id}`}><li>{post.title}</li></Link>
         )
       })}
     </div>

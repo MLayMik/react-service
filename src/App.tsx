@@ -5,6 +5,7 @@ import BlogItem from './pages/BlogItem'
 import BlogPage from './pages/BlogPage'
 import Catalog from './pages/Catalog'
 import Contacts from './pages/Contacts'
+import EditPage from './pages/EditPage'
 import MainPage from './pages/MainPage'
 import Services from './pages/Services'
 
@@ -18,8 +19,9 @@ function App() {
         <Route path="Services" element={<Services />} />
         <Route path="Contacts" element={<Contacts />} />
         <Route path="AboutUs" element={<AboutUs />} />
-        <Route path="BlogPage" element={<BlogPage />} />
-        <Route path="post/:id" element={<BlogItem />} />
+        <Route path="posts" element={<BlogPage />} />
+        <Route path="posts/:id" element={<BlogItem />} />
+        <Route path="posts/:id/edit" element={<EditPage />} />
       </Route>
     </Routes>
   )

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 interface Post {
   id: number
@@ -25,6 +25,7 @@ export default function BlogItem() {
         <div>
           <p>{post.title}</p>
           <p>{post.body}</p>
+          <Link to={`/posts/${id}/edit`}>Edit this post</Link>
         </div>
       )}
     </div>

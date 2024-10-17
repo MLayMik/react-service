@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import ButtonMenu from './Buttons/ButtonMenu'
 
 export default function Layout() {
@@ -8,14 +8,14 @@ export default function Layout() {
     { section: 'Services', label: 'Послуги' },
     { section: 'AboutUs', label: 'Про нас' },
     { section: 'Contacts', label: 'Контакти' },
-    { section: 'BlogPage', label: 'Блог' },
+    { section: 'posts', label: 'Блог' },
   ]
   return (
     <>
       <header className="max-w-[1440px] mx-auto flex justify-between my-4">
         <div className="flex gap-16">
           <div>
-            <button type="button"><img src="/src/assets/Logo.png" alt="Logo" /></button>
+            <Link to="/"><img src="/src/assets/Logo.png" alt="Logo" /></Link>
           </div>
           <div className="flex">
             <div>
