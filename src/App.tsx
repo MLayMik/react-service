@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import AboutUs from './pages/AboutUs'
+import BlogItem from './pages/BlogItem'
+import BlogPage from './pages/BlogPage'
 import Catalog from './pages/Catalog'
 import Contacts from './pages/Contacts'
 import MainPage from './pages/MainPage'
-import NewPage from './pages/NewPage'
 import Services from './pages/Services'
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
         <Route path="Services" element={<Services />} />
         <Route path="Contacts" element={<Contacts />} />
         <Route path="AboutUs" element={<AboutUs />} />
-        <Route path="MainPage/:id" element={<NewPage />} />
+        <Route path="BlogPage" element={<BlogPage />} />
+        <Route path="post/:id" element={<BlogItem />} />
       </Route>
     </Routes>
   )

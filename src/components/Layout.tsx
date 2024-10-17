@@ -8,6 +8,7 @@ export default function Layout() {
     { section: 'Services', label: 'Послуги' },
     { section: 'AboutUs', label: 'Про нас' },
     { section: 'Contacts', label: 'Контакти' },
+    { section: 'BlogPage', label: 'Блог' },
   ]
   return (
     <>
