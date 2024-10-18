@@ -46,14 +46,13 @@ export default function Layout() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5149.855438201257!2d24.06431506044323!3d49.806226547065606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae81a36741bbf%3A0xe7464f623da4015b!2sSERVICE%20TIR!5e0!3m2!1suk!2sua!4v1697911690186!5m2!1suk!2sua"
                 className="relative z-10 w-full h-full"
                 loading="lazy"
-                allowFullScreen=""
               >
               </iframe>
             </div>
           </div>
 
           <div className="w-[1440px] mx-auto">
-            <div className="bg-gray-600 size-12 relative z-20 ml-16 my-[90px]">
+            <div className="bg-gray-600 size-12 relative z-20 ml-16 my-[]">
 
             </div>
           </div>
