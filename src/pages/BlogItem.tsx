@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import ButtonMain from '../components/Buttons/ButtonMain'
 
 interface Post {
   id: number
@@ -18,6 +19,8 @@ export default function BlogItem() {
     },
     [id],
   )
+  const navigate = useNavigate()
+  const goBack = () => navigate(-1)
 
   return (
     <div className="max-w-[1440px] mx-auto">
@@ -26,6 +29,7 @@ export default function BlogItem() {
           <p>{post.title}</p>
           <p>{post.body}</p>
           <Link to={`/posts/${id}/edit`}>Edit this post</Link>
+          <ButtonMain onClick={goBack}>Go back</ButtonMain>
         </div>
       )}
     </div>

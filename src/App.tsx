@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import AboutUs from './pages/AboutUs'
 import BlogItem from './pages/BlogItem'
@@ -14,11 +14,11 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<MainPage />} />
-        <Route path="MainPage" element={<MainPage />} />
-        <Route path="Catalog" element={<Catalog />} />
-        <Route path="Services" element={<Services />} />
-        <Route path="Contacts" element={<Contacts />} />
-        <Route path="AboutUs" element={<AboutUs />} />
+        <Route path="catalog" element={<Catalog />} />
+        <Route path="services" element={<Services />} />
+        <Route path="contacts" element={<Contacts />} />
+        <Route path="about-us" element={<AboutUs />} />
+        <Route path="about" element={<Navigate to="/about-us" replace />} />
         <Route path="posts" element={<BlogPage />} />
         <Route path="posts/:id" element={<BlogItem />} />
         <Route path="posts/:id/edit" element={<EditPage />} />

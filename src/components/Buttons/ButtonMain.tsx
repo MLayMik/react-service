@@ -2,11 +2,12 @@ import type { ReactNode } from 'react'
 
 interface ButtonMainProps {
   children: ReactNode
+  onClick?: () => void
 }
 
-export default function ButtonMain({ children }: ButtonMainProps) {
+export default function ButtonMain({ children, onClick }: ButtonMainProps) {
   return (
-    <button type="button" className="bg-[#246DEF] py-3 px-8 rounded-[30px]">
+    <button type="button" onClick={onClick} className="bg-[#246DEF] py-3 px-8 rounded-[30px] text-white">
       {children}
     </button>
   )

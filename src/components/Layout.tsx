@@ -3,13 +3,14 @@ import ButtonMenu from './Buttons/ButtonMenu'
 
 export default function Layout() {
   const menuItems = [
-    { section: 'MainPage', label: 'Головна' },
-    { section: 'Catalog', label: 'Каталог' },
-    { section: 'Services', label: 'Послуги' },
-    { section: 'AboutUs', label: 'Про нас' },
-    { section: 'Contacts', label: 'Контакти' },
-    { section: 'posts', label: 'Блог' },
+    { section: '/', label: 'Головна' },
+    { section: '/catalog', label: 'Каталог' },
+    { section: '/services', label: 'Послуги' },
+    { section: '/about-us', label: 'Про нас' },
+    { section: '/contacts', label: 'Контакти' },
+    { section: '/posts', label: 'Блог' },
   ]
+
   return (
     <>
       <header className="max-w-[1440px] mx-auto flex justify-between my-4">
@@ -39,6 +40,5 @@ export default function Layout() {
       <Outlet />
       <footer></footer>
     </>
-
   )
 }
