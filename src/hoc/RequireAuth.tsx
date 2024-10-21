@@ -7,7 +7,7 @@ interface RequireAuthProps {
 
 export default function RequireAuth({ children }: RequireAuthProps) {
   const location = useLocation()
-  const auth = true
+  const auth = false
   if (!auth) {
     return <Navigate to="/login" state={{ from: location }} />
   }
