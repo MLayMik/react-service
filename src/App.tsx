@@ -7,15 +7,15 @@ import BlogPage from './pages/BlogPage'
 import Catalog from './pages/Catalog'
 import Contacts from './pages/Contacts'
 import EditPage from './pages/EditPage'
+import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
-import MainPage from './pages/MainPage'
 import Services from './pages/Services'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<MainPage />} />
+        <Route index element={<HomePage />} />
         <Route path="catalog" element={<Catalog />} />
         <Route path="services" element={<Services />} />
         <Route path="contacts" element={<Contacts />} />

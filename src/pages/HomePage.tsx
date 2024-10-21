@@ -1,7 +1,8 @@
 import ButtonMain from '../components/Buttons/ButtonMain'
+import ServicesHomePage from '../components/ServicesHomePage/ServicesHomePage'
 import Slider from '../components/Slider/Slider'
 
-export default function MainPage() {
+export default function HomePage() {
   return (
     <main>
       <div className=" max-w-[1440px] mx-auto">
@@ -13,8 +14,14 @@ export default function MainPage() {
           </div>
           <img className="rounded-[30px] size-[690px]" src="/src/assets/main_photo_site.png" alt="" />
         </div>
-        <div>
+        <div className="mb-[120px]">
           <Slider />
+        </div>
+        <div>
+          <ServicesHomePage />
+        </div>
+        <div>
+          asdfasdf
         </div>
       </div>
     </main>
