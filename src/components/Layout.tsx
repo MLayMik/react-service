@@ -55,52 +55,24 @@ export default function Layout() {
           </div>
 
           <div className="relative z-20 top-10 left-[300px] max-w-[1440px]">
-            <div
-              className="
-      inline-block rounded-2xl bg-white p-8
-
-      min-[425px]:pr-16
-    "
-            >
+            <div className="inline-block rounded-2xl bg-white p-8 min-[425px]:pr-16">
               <div className="mb-9 flex items-center gap-3">
-                <div
-                  className="
-          paragraphIcon hidden size-10 rounded-full bg-white p-2 text-lg
-
-          min-[425px]:block
-        "
-                >
+                <div className="paragraphIcon hidden size-10 rounded-full bg-white p-2 text-lg min-[425px]:block">
                   📱
                 </div>
-                <h1
-                  className="
-          whitespace-nowrap font-jakarta text-3xl font-bold leading-normal text-gray-900
-
-          lg:text-big lg:leading-extra-height
-        "
-                >
+                <h1 className="whitespace-nowrap font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height">
                   Наші контакти
                 </h1>
               </div>
+
               <div className="mb-4 flex flex-col items-start gap-5 text-neutral-500">
                 <div className="flex flex-col gap-2.5">
-                  <div className="font-bold">
-                    Адреса:
-                  </div>
-                  <div className="leading-7">
-                    Україна, м. Львів, вул. Пасічна 127
-                  </div>
+                  <div className="font-bold">Адреса:</div>
+                  <div className="leading-7">Україна, м. Львів, вул. Пасічна 127</div>
                 </div>
-                <div
-                  className="
-          flex flex-col gap-2.5 transition-colors duration-300
 
-          hover:text-zinc-900
-        "
-                >
-                  <div className="font-bold">
-                    Телефон
-                  </div>
+                <div className="flex flex-col gap-2.5 transition-colors duration-300 hover:text-zinc-900">
+                  <div className="font-bold">Телефон</div>
                   <a href="tel:380980000122" className="leading-7">
                     +38(098)-0000-122
                   </a>
@@ -111,36 +83,26 @@ export default function Layout() {
                     +38(098)-0000-127
                   </a>
                 </div>
-                <div
-                  className="flex flex-col gap-2.5 transition-colors duration-300hover:text-zinc-900"
-                >
-                  <div className="font-bold">
-                    Пошта:
-                  </div>
-                  <a
-                    href="mailto:avtobaza12@ukr.net"
-                    className="leading-7 underline underline-offset-2"
-                  >
+
+                <div className="flex flex-col gap-2.5 transition-colors duration-300 hover:text-zinc-900">
+                  <div className="font-bold">Пошта:</div>
+                  <a href="mailto:avtobaza12@ukr.net" className="leading-7 underline underline-offset-2">
                     avtobaza12@ukr.net
                   </a>
                 </div>
-                <ButtonMain>
-                  Зателефонувати
-                </ButtonMain>
+
+                <ButtonMain>Зателефонувати</ButtonMain>
               </div>
+
               <button type="button" className="flex items-center gap-2.5 pl-3">
-                <MapIcon
-                  className="size-4 text-blue-600"
-                />
-                <p className="text-xs font-medium text-blue-600">
-                  Прокласти маршрут
-                </p>
+                <MapIcon className="size-4 text-blue-600" />
+                <p className="text-xs font-medium text-blue-600">Прокласти маршрут</p>
               </button>
             </div>
           </div>
-
         </div>
       </footer>
+
     </>
   )
 }
