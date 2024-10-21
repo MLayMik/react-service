@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import ButtonMain from '../components/Buttons/ButtonMain'
 
 interface Posts {
   id: number
@@ -19,6 +20,7 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-[1440px] mx-auto">
+      <Link to="new"><ButtonMain>New post</ButtonMain></Link>
       {posts.map((post) => {
         return (
           <Link key={post.id} to={`/posts/${post.id}`}><li>{post.title}</li></Link>
