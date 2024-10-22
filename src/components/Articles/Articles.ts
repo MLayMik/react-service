@@ -6,7 +6,7 @@ export interface ArticleType {
   body: string
 }
 
-const articlesId: ArticleType[] = [
+const articlesId = [
   {
     id: 1,
     img: '/src/assets/articles/ArticleImage1.png',
