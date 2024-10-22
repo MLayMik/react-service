@@ -2,12 +2,13 @@ import type { ReactNode } from 'react'
 
 interface ButtonMainProps {
   children: ReactNode
-  onClick?: () => void
+  onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void // Обработчик для кнопки
+  type?: 'submit' | 'button' | 'reset'
 }
 
-export default function ButtonMain({ children, onClick }: ButtonMainProps) {
+export default function ButtonMain({ children, onClick, type = 'button' }: ButtonMainProps) {
   return (
-    <button type="button" onClick={onClick} className="bg-[#246DEF] py-3 px-8 rounded-[30px] text-white font-bold">
+    <button type={type} onClick={onClick} className="bg-[#246DEF] py-3 px-8 rounded-[30px] text-white font-bold">
       {children}
     </button>
   )

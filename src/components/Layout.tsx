@@ -1,8 +1,9 @@
 /* eslint-disable react-dom/no-missing-iframe-sandbox */
 import { MapIcon } from '@heroicons/react/24/outline'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import ButtonMain from './Buttons/ButtonMain'
 import ButtonMenu from './Buttons/ButtonMenu'
+import { useAuth } from './hook/useAuth'
 
 export default function Layout() {
   const menuItems = [
@@ -13,6 +14,8 @@ export default function Layout() {
     { section: '/contacts', label: 'Контакти' },
     { section: '/posts', label: 'Блог' },
   ]
+  const { signOut } = useAuth()
+  const navigate = useNavigate()
 
   return (
     <>
@@ -29,6 +32,7 @@ export default function Layout() {
           </div>
         </div>
         <div className="flex gap-8 items-center">
+          <ButtonMain onClick={() => signOut(() => navigate('/', { replace: true }))}>Sign Out</ButtonMain>
           <Link to="login" className="size-6"><img src="/src/assets/Profile.svg" alt="" /></Link>
           <button type="button" className="size-6"><img src="/src/assets/Liked.svg" alt="" /></button>
           <div className="flex gap-1">
