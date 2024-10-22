@@ -1,24 +1,33 @@
-import { createContext, useState } from 'react'
+import type { ReactNode } from 'react'
+import { createContext, useMemo, useState } from 'react'
 
 interface AuthContextType {
-  user: string | null // Здесь UserType - это тип вашего пользователя
+  user: string | null
   signIn: (username: string, callback: () => void) => void
   signOut: (callback: () => void) => void
+}
+interface AuthProviderProps {
+  children: ReactNode
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null)
 
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
-  const signIn = (newUser, cb) => {
+export function AuthProvider({ children }: AuthProviderProps) {
+  const [user, setUser] = useState<string | null>(null)
+
+  const signIn = (newUser: string, cb: () => void) => {
     setUser(newUser)
     cb()
   }
-  const signOut = (cb) => {
+  const signOut = (cb: () => void) => {
     setUser(null)
     cb()
   }
-  const value = { user, signIn, signOut }
+
+  const value = useMemo(
+    () => ({ user, signIn, signOut }),
+    [user],
+  )
   return (
     <AuthContext.Provider value={value}>
       {children}

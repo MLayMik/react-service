@@ -1,4 +1,4 @@
-import { replace, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import ButtonMain from '../components/Buttons/ButtonMain'
 import { useAuth } from '../components/hook/useAuth'
 
@@ -6,11 +6,18 @@ export default function LoginPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const fromPage = location.state?.from?.pathname || '/'
-  const { signIn } = useAuth()
+
+  const auth = useAuth()
+
   const handleSubmit = (event?: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault()
-    const user = (event.currentTarget.username.value)
-    signIn(user, () => navigate(fromPage, { replace: true }))
+    const user = (event?.currentTarget.username.value)
+    if (auth?.signIn) {
+      auth.signIn(user, () => navigate(fromPage, { replace: true }))
+    }
+    else {
+      console.error('signIn function is not available')
+    }
   }
 
   return (

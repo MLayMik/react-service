@@ -14,8 +14,16 @@ export default function Layout() {
     { section: '/contacts', label: 'Контакти' },
     { section: '/posts', label: 'Блог' },
   ]
-  const { signOut } = useAuth()
+  const auth = useAuth()
   const navigate = useNavigate()
+  const handleSubmit = () => {
+    if (auth?.signIn) {
+      auth.signOut(() => navigate('/', { replace: true }))
+    }
+    else {
+      console.error('signIn function is not available')
+    }
+  }
 
   return (
     <>
@@ -32,7 +40,7 @@ export default function Layout() {
           </div>
         </div>
         <div className="flex gap-8 items-center">
-          <ButtonMain onClick={() => signOut(() => navigate('/', { replace: true }))}>Sign Out</ButtonMain>
+          <ButtonMain onClick={handleSubmit}>Sign Out</ButtonMain>
           <Link to="login" className="size-6"><img src="/src/assets/Profile.svg" alt="" /></Link>
           <button type="button" className="size-6"><img src="/src/assets/Liked.svg" alt="" /></button>
           <div className="flex gap-1">
