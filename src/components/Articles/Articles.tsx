@@ -7,8 +7,8 @@ export default function Articles() {
     <>
       <div className="flex justify-between mb-10">
         <div className="flex items-center gap-3">
-          <Sticker><img src="/src/assets/Stickers/Article.png" alt="" /></Sticker>
-          <p className="font-jakarta font-bold text-[40px]">Cтатті</p>
+          <Sticker><img src="/assets/Stickers/Article.png" alt="" /></Sticker>
+          <p className="font-jakarta font-bold text-[40px]">Статті</p>
         </div>
         <div className="flex gap-3">
           <Sticker><ChevronLeftIcon className="size-5" /></Sticker>
