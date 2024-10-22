@@ -1,3 +1,4 @@
+import Articles from '../components/Articles/Articles'
 import ButtonMain from '../components/Buttons/ButtonMain'
 import ServicesHomePage from '../components/ServicesHomePage/ServicesHomePage'
 import Slider from '../components/Slider/Slider'
@@ -21,7 +22,7 @@ export default function HomePage() {
           <ServicesHomePage />
         </div>
         <div>
-          asdfasdf
+          <Articles />
         </div>
       </div>
     </main>
