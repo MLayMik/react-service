@@ -30,7 +30,7 @@ export default function Layout() {
       <header className="max-w-[1440px] mx-auto flex justify-between my-4">
         <div className="flex gap-16">
           <div>
-            <Link to="/"><img src="/src/assets/Logo.png" alt="Logo" /></Link>
+            <Link to="/"><img src="/src/assets/Logo.svg" alt="Logo" /></Link>
           </div>
           <div className="flex">
             <div>

@@ -1,0 +1,50 @@
+<div class="relative z-20 w-full max-w-lg">
+  <div
+    id="search"
+    class="relative z-10 flex w-full max-w-lg items-end gap-6 rounded-3xl bg-white"
+  >
+    <button
+      class="rounded-[20px] bg-gray-100 p-3 transition-colors duration-300 hover:bg-gray-200"
+      id="searchBtn"
+    >
+      <img
+        src="/src/assets/searchIcon.svg"
+        alt="search icon"
+      />
+    </button>
+    <input
+      class="w-[75%] border-x-0 border-b border-t-0 border-gray-100 p-0 pb-2 text-xs font-medium leading-7 text-gray-900 placeholder:text-slate-500 focus:ring-0"
+      id="searchInput"
+      type="text"
+      placeholder="Напишіть назву товару"
+    />
+  </div>
+  <div
+    id="searchResult"
+    class="absolute top-[54px] z-10 hidden w-full flex-col gap-1 rounded-2xl bg-white shadow-2xl"
+  >
+    {{>SearchResultCard}}
+    <hr />
+    {{>SearchResultCard}}
+    <hr />
+    {{>SearchResultCard}}
+    <hr />
+    {{>SearchResultCard}}
+    <hr />
+    <a
+      class="px-2 py-3 text-sm font-semibold leading-small text-blue-600 transition-colors duration-300 hover:text-blue-800"
+      href="/results/"
+    >
+      Показати всі (239)
+    </a>
+  </div>
+  <div
+    id="overlay"
+    class="fixed inset-0 hidden h-full w-full border border-black/10 bg-black/25 blur-sm"
+  ></div>
+</div>
+
+<script
+  type="module"
+  src="/src/scripts/Search.js"
+></script>
