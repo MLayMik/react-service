@@ -1,3 +1,5 @@
+import Cart from './Cart'
+
 export default function Catalog() {
   return (
     <>
@@ -52,6 +54,7 @@ export default function Catalog() {
           </div>
           <div>
             <button
+              type="button"
               id="showFilterForm"
               className="card mb-8 flex w-full justify-between rounded-2xl px-6 py-3 lg:hidden"
             >
@@ -64,6 +67,7 @@ export default function Catalog() {
             <div
               className="mb-10 grid gap-5 min-[400px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3"
             >
+              <Cart />
               {/* {{>ProductCard}} {{>ProductCard}} {{>ProductCardLiked}}
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCard}}
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCard}}
