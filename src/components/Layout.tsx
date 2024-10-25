@@ -41,7 +41,7 @@ export default function Layout() {
         </div>
         <div className="flex gap-8 items-center">
           <ButtonMain onClick={handleSubmit}>Sign Out</ButtonMain>
-          <Link to="login" className="size-6"><img src="/src/assets/Profile.svg" alt="" /></Link>
+          <Link to="profile" className="size-6"><img src="/src/assets/Profile.svg" alt="" /></Link>
           <button type="button" className="size-6"><img src="/src/assets/Liked.svg" alt="" /></button>
           <div className="flex gap-1">
             <button type="button" className="size-6"><img src="/src/assets/Bag.svg" alt="" /></button>

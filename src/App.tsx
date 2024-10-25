@@ -10,6 +10,11 @@ import Catalog from './pages/Catalog/Catalog'
 import Contacts from './pages/Contacts'
 import EditPage from './pages/EditPage'
 import HomePage from './pages/HomePage'
+import Profile from './pages/Profile/Profile'
+import ProfileFavorite from './pages/Profile/ProfileFavorite'
+import ProfileHome from './pages/Profile/ProfileHome'
+import ProfileInfo from './pages/Profile/ProfileInfo'
+import ProfileOrders from './pages/Profile/ProfileOrders'
 import Services from './pages/Services'
 
 function App() {
@@ -28,7 +33,6 @@ function App() {
           </Route>
           <Route path="about" element={<Navigate to="/about-us" replace />} />
           <Route path="posts" element={<BlogPage />} />
-          {/* <Route path="login" element={<LoginPage />} /> */}
           <Route path="posts/:id" element={<BlogItem />} />
           <Route path="posts/:id/edit" element={<EditPage />} />
           <Route
@@ -39,6 +43,20 @@ function App() {
               </RequireAuth>
             )}
           />
+          <Route
+            path="profile/"
+            element={(
+              <RequireAuth>
+                <Profile>
+                </Profile>
+              </RequireAuth>
+            )}
+          >
+            <Route index element={<ProfileHome />} />
+            <Route path="info" element={<ProfileInfo />} />
+            <Route path="favorite" element={<ProfileFavorite />} />
+            <Route path="orders" element={<ProfileOrders />} />
+          </Route>
         </Route>
       </Routes>
     </AuthProvider>

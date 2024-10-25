@@ -10,7 +10,12 @@ export default function RequireAuth({ children }: RequireAuthProps) {
   const location = useLocation()
   const auth = useAuth()
   if (!auth?.user) {
-    return <Navigate to="/login" state={{ from: location }} />
+    return (
+      <Navigate
+        to="/login"
+        state={{ from: location }}
+      />
+    )
   }
   return (
     children
