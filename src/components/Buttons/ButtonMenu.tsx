@@ -3,11 +3,12 @@ import { NavLink } from 'react-router-dom'
 interface ButtonMenuProps {
   children: string
   section: string
+  footer?: boolean
 }
 
-export default function ButtonMenu({ children, section }: ButtonMenuProps) {
+export default function ButtonMenu({ children, section, footer = false }: ButtonMenuProps) {
   return (
-    <div className="mb-4">
+    <div className="">
       <NavLink
         to={`${section}`}
         className={({ isActive }) => (isActive ? 'font-bold' : undefined)}
@@ -15,7 +16,7 @@ export default function ButtonMenu({ children, section }: ButtonMenuProps) {
         {({ isActive }) => (
           <div className="flex flex-col items-center">
             {children}
-            {isActive && <div className="h-0.5 bg-black mt-2 w-full"></div>}
+            {!footer && isActive && <div className="h-0.5 bg-black mt-2 w-[85px]"></div>}
           </div>
         )}
       </NavLink>

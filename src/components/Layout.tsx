@@ -58,16 +58,16 @@ export default function Layout() {
           <div
             className="mx-auto max-w-[1440px] justify-between px-5 xl:flex 2xl:px-[150px]"
           >
-            <a href="/">
+            <Link to="/">
               <img
                 src="/src/assets/Logo.svg"
                 alt="service tir logo"
               />
-            </a>
-            <ul
-              className="mt-8 flex select-none flex-wrap items-center gap-9 text-gray-900 lg:gap-[53px] xl:mt-0 xl:justify-center"
-            >
-              <li>
+            </Link>
+            <ul className="mt-8 flex select-none flex-wrap items-center gap-9 text-gray-900 lg:gap-[53px] xl:mt-0 xl:justify-center">
+              {menuItems.map(item => <ButtonMenu key={item.section} footer={true} section={item.section}>{item.label}</ButtonMenu>)}
+
+              {/* <li>
                 <a
                   className="font-bold transition-colors duration-300 hover:text-gray-950"
                   href="/"
@@ -130,7 +130,7 @@ export default function Layout() {
                 >
                   Статті
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
