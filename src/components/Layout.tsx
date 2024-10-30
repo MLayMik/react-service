@@ -3,6 +3,8 @@ import ButtonMain from './Buttons/ButtonMain'
 import ButtonMenu from './Buttons/ButtonMenu'
 import { useAuth } from './hook/useAuth'
 
+import Logo from '/src/assets/Logo.svg'
+
 export default function Layout() {
   const menuItems = [
     { section: '/', label: 'Головна' },
@@ -28,7 +30,7 @@ export default function Layout() {
       <header className="max-w-[1440px] mx-auto flex justify-between my-4">
         <div className="flex gap-16">
           <div>
-            <Link to="/"><img src="/src/assets/Logo.svg" alt="Logo" /></Link>
+            <Link to="/"><img src={Logo} alt="Logo" /></Link>
           </div>
           <div className="flex">
             <div>
