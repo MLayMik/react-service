@@ -1,4 +1,5 @@
 import type { Swiper as SwiperType } from 'swiper'
+import products from '@/db/products'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -7,6 +8,7 @@ import SliderItem from './SliderItem'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import 'swiper/css/effect-coverflow'
 
 export default function Slider() {
   const swiperRef = useRef<SwiperType | null>(null)
@@ -40,18 +42,10 @@ export default function Slider() {
         onSwiper={swiper => (swiperRef.current = swiper)}
         className="p-5 mb-5"
       >
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
-        <SwiperSlide><SliderItem /></SwiperSlide>
+        {/* {console.log(products)} */}
+        {products.map(product =>
+          <SwiperSlide key={product.code} className="h-auto"><SliderItem {...product} /></SwiperSlide>,
+        )}
       </Swiper>
     </>
   )

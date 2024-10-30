@@ -1,3 +1,4 @@
+import services from '@/db/services'
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid'
 import Sticker from '../Buttons/Sticker'
 import ServicesHomeItem from './ServicesHomeItem'
@@ -13,13 +14,16 @@ export default function ServicesHomePage() {
           <ArrowLongRightIcon className="w-6 h-6" />
         </a>
       </div>
+      {/* {console.log(services)} */}
       <div className="grid grid-cols-2 gap-5">
+
+        { services.sort(() => 0.5 - Math.random()).slice(0, 6).map(service => <ServicesHomeItem key={service.id} {...service} />)}
+        {/* <ServicesHomeItem />
         <ServicesHomeItem />
         <ServicesHomeItem />
         <ServicesHomeItem />
         <ServicesHomeItem />
-        <ServicesHomeItem />
-        <ServicesHomeItem />
+        <ServicesHomeItem /> */}
       </div>
     </div>
   )

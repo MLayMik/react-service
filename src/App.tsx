@@ -7,7 +7,7 @@ import LoginPage from './pages/Auth/LoginPage'
 import BlogItem from './pages/BlogPage/BlogItem'
 import BlogPage from './pages/BlogPage/BlogPage'
 import Catalog from './pages/Catalog/Catalog'
-import Contacts from './pages/Contacts'
+import Contacts from './pages/Contacts/Contacts'
 import EditPage from './pages/EditPage'
 import HomePage from './pages/HomePage'
 import Profile from './pages/Profile/Profile'
@@ -15,7 +15,7 @@ import ProfileFavorite from './pages/Profile/ProfileFavorite'
 import ProfileHome from './pages/Profile/ProfileHome'
 import ProfileInfo from './pages/Profile/ProfileInfo'
 import ProfileOrders from './pages/Profile/ProfileOrders'
-import Services from './pages/Services'
+import Services from './pages/Services/Services'
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="catalog" element={<Catalog />} />
           <Route path="services" element={<Services />} />
-          <Route path="contacts" element={<Contacts />} />
+          <Route path="/contacts" element={<Contacts />} />
           <Route path="about-us" element={<AboutUs />}>
             <Route />
             <Route />
