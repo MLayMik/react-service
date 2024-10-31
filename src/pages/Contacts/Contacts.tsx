@@ -1,4 +1,4 @@
-import ButtonMain from '../../components/Buttons/ButtonMain'
+import ButtonMain from '@/shared/ui/buttons/ButtonMain'
 
 export default function Contacts() {
   return (

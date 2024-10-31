@@ -1,4 +1,4 @@
-import Cart from './Cart'
+import Cart from '../../widgets/product-card/ProductCard'
 
 export default function Catalog() {
   return (
