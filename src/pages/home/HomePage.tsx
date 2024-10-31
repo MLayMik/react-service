@@ -2,10 +2,11 @@ import ServicesHomeItem from '@/entities/services-card/ServicesCard'
 import Map from '@/features/map/Map'
 import Slider from '@/features/slider/Slider'
 import services from '@/shared/api/db/services'
-import mainPhoto from '@/shared/assets/main_photo_site.png'
+import lvivskaBaza from '@/shared/assets/lvіvska-avtobaza.png'
 import ButtonMain from '@/shared/ui/buttons/ButtonMain'
 import { ArticleSwiper } from '@/widgets/article-swiper/ArticleSwiper'
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom'
 
 export default function HomePage() {
   return (
@@ -13,11 +14,11 @@ export default function HomePage() {
       <div className=" max-w-[1440px] mx-auto mb-20">
         <div className="flex items-center mb-[120px]">
           <div className="flex flex-col gap-6">
-            <p className="font-jakarta font-bold text-6xl">Якісна діагностика ходової вантажівок</p>
-            <p className="font-montserrat">Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.</p>
-            <div><ButtonMain>Дізнатись ціну для вашого авто</ButtonMain></div>
+            <p className="font-jakarta font-bold text-6xl ">Львівська Автобаза 1</p>
+            <p className="font-montserrat text-[#6C6C6C]">Львівська Автобаза 1 – ваш гарантований шлях до безпеки на дорозі! Ми пропонуємо ремонт і обслуговування двигунів, супортів, коробок передач, систем охолодження та AdBlue. Відновлюємо турбіни, виконуємо металозварювання та виготZовляємо деталі за кресленнями. Широкий асортимент запчастин для вантажівок і автобусів. Львівська Автобаза 1 – надійність та якість!</p>
+            <div><ButtonMain><Link to="services">Дізнатись більше</Link></ButtonMain></div>
           </div>
-          <img className="rounded-[30px] size-[690px]" src={mainPhoto} alt="" />
+          <img className="rounded-[30px] size-[690px]" src={lvivskaBaza} alt="" />
         </div>
         <div className="mb-[120px]">
           <Slider />

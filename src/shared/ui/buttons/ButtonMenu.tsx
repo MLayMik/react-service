@@ -16,7 +16,7 @@ export default function ButtonMenu({ children, section, footer = false }: Button
         {({ isActive }) => (
           <div className="flex flex-col items-center">
             {children}
-            {!footer && isActive && <div className="h-0.5 bg-black mt-2 w-[85px]"></div>}
+            {!footer && isActive && <div className="h-0.5 bg-black mt-4 w-[85px]"></div>}
           </div>
         )}
       </NavLink>
