@@ -2,8 +2,8 @@ import ServicesHomeItem from '@/entities/services-card/ServicesCard'
 import Map from '@/features/map/Map'
 import Slider from '@/features/slider/Slider'
 import services from '@/shared/api/db/services'
+import mainPhoto from '@/shared/assets/main_photo_site.png'
 import ButtonMain from '@/shared/ui/buttons/ButtonMain'
-import Sticker from '@/shared/ui/sticker/Sticker'
 import { ArticleSwiper } from '@/widgets/article-swiper/ArticleSwiper'
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid'
 
@@ -17,7 +17,7 @@ export default function HomePage() {
             <p className="font-montserrat">Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.</p>
             <div><ButtonMain>Дізнатись ціну для вашого авто</ButtonMain></div>
           </div>
-          <img className="rounded-[30px] size-[690px]" src="/src/assets/main_photo_site.png" alt="" />
+          <img className="rounded-[30px] size-[690px]" src={mainPhoto} alt="" />
         </div>
         <div className="mb-[120px]">
           <Slider />
@@ -25,7 +25,9 @@ export default function HomePage() {
         <div>
           <div className="flex flex-col mb-[200px]">
             <div className="flex items-center mb-8">
-              <Sticker><img src="/src/assets/Stickers/Deal.png" alt="" /></Sticker>
+              <div className="paragraphIcon mr-3 rounded-full bg-white p-2 text-2xl">
+                🤝
+              </div>
               <p className="ml-3 mr-5 font-jakarta font-bold text-[40px]">Наші послуги</p>
               <a href="" className="flex items-center gap-2 text-blue-500 hover:underline">
                 Всі послуги

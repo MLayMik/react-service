@@ -2,6 +2,7 @@ import { useUserStore } from '@/entities/user/store/UserStore'
 import logo from '@/shared/assets/Logo.svg'
 import ButtonMain from '@/shared/ui/buttons/ButtonMain'
 import ButtonMenu from '@/shared/ui/buttons/ButtonMenu'
+import { HeartIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 // import { useAuth } from '../../components/hook/useAuth'
@@ -34,17 +35,25 @@ export default function Layout() {
           </div>
           <div className="flex">
             <div>
-              <button type="button" className="size-12 rounded-3xl bg-[#F4F5F7] flex justify-center items-center"><img src="/src/assets/Search.svg" alt="Search" /></button>
+              <button type="button" className="size-12 rounded-3xl bg-[#F4F5F7] flex justify-center items-center">
+                <MagnifyingGlassIcon className="size-5" />
+              </button>
             </div>
             <input type="text" placeholder="Напишіть назву товару" />
           </div>
         </div>
         <div className="flex gap-8 items-center">
           <ButtonMain onClick={handleSubmit}>Sign Out</ButtonMain>
-          <Link to="profile" className="size-6"><img src="/src/assets/Profile.svg" alt="" /></Link>
-          <button type="button" className="size-6"><img src="/src/assets/Liked.svg" alt="" /></button>
-          <div className="flex gap-1">
-            <button type="button" className="size-6"><img src="/src/assets/Bag.svg" alt="" /></button>
+          <Link to="profile" className="size-6">
+            <UserCircleIcon />
+          </Link>
+          <button type="button" className="size-6">
+            <HeartIcon />
+          </button>
+          <div className="flex items-center gap-2">
+            <button type="button" className="size-5">
+              <ShoppingCartIcon />
+            </button>
             <p>₴10 000</p>
           </div>
         </div>

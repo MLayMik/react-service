@@ -1,3 +1,4 @@
+import star from '@/shared/assets/starIcon.svg'
 import ButtonMain from '@/shared/ui/buttons/ButtonMain'
 
 interface Review {
@@ -57,27 +58,27 @@ export default function SliderItem({ name, description, price, price_with_discou
         </h1>
         <div className="mb-2 flex flex-wrap items-center">
           <img
-            src="/src/assets/starIcon.svg"
+            src={star}
             alt="star"
             className="h-4 w-4"
           />
           <img
-            src="/src/assets/starIcon.svg"
+            src={star}
             alt="star"
             className="h-4 w-4 -ml-1"
           />
           <img
-            src="/src/assets/starIcon.svg"
+            src={star}
             alt="star"
             className="h-4 w-4 -ml-1"
           />
           <img
-            src="/src/assets/starIcon.svg"
+            src={star}
             alt="star"
             className="h-4 w-4 -ml-1"
           />
           <img
-            src="/src/assets/starIcon.svg"
+            src={star}
             alt="star"
             className="h-4 w-4 -ml-1"
           />
