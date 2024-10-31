@@ -69,7 +69,7 @@ export default function Layout() {
           >
             <Link to="/">
               <img
-                src="/src/assets/Logo.svg"
+                src={logo}
                 alt="service tir logo"
               />
             </Link>

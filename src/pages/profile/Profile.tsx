@@ -1,3 +1,5 @@
+import heartIcon from '@/shared/assets/HeartRedIcon.svg'
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import { Link, Outlet } from 'react-router-dom'
 
 export default function Profile() {
@@ -12,15 +14,12 @@ export default function Profile() {
         >
           Головна
         </Link>
-        <img src="/src/assets/ChevronRightSmall.svg" />
+        <ChevronRightIcon className="size-5" />
         <p className="whitespace-nowrap">Особистий кабінет</p>
       </div>
       <div className="mb-8 flex items-center gap-3">
-        <div className="paragraphIcon rounded-full bg-white p-2">
-          <img
-            src="/src/assets/caseIcon.svg"
-            alt="case icon"
-          />
+        <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
+          💼
         </div>
         <h1
           className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
@@ -39,12 +38,9 @@ export default function Profile() {
           data-tab="#mainTab"
         >
           <div
-            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300"
+            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300 text-2xl"
           >
-            <img
-              src="/src/assets/caseIcon.svg"
-              alt="case icon"
-            />
+            💼
           </div>
           <p
             className="inline-block rounded-lg bg-gray-100 py-2 pl-9 pr-5 text-xs font-medium text-slate-700 duration-300"
@@ -59,12 +55,9 @@ export default function Profile() {
           data-tab="#infoTab"
         >
           <div
-            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300"
+            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300 text-2xl"
           >
-            <img
-              src="/src/assets/orderIcon.svg"
-              alt="order icon"
-            />
+            📝
           </div>
           <p
             className="inline-block rounded-lg bg-gray-100 py-2 pl-9 pr-5 text-xs font-medium text-slate-700 duration-300"
@@ -82,8 +75,9 @@ export default function Profile() {
           <div
             className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300"
           >
+
             <img
-              src="/src/assets/HeartRedIcon.svg"
+              src={heartIcon}
               alt="case icon"
             />
           </div>
@@ -101,12 +95,9 @@ export default function Profile() {
           data-tab="#ordersTab"
         >
           <div
-            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300"
+            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300 text-2xl"
           >
-            <img
-              src="/src/assets/boxIcon.svg"
-              alt="order icon"
-            />
+            📦
           </div>
           <p
             className="inline-block rounded-lg bg-gray-100 py-2 pl-9 pr-5 text-xs font-medium text-slate-700 duration-300"

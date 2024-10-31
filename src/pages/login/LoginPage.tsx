@@ -1,9 +1,12 @@
 import type { UserType } from '@/entities/user/store/UserStore'
 import { useUserStore } from '@/entities/user/store/UserStore'
 
-import logo from '@/shared/assets/Logo.svg'
+import forestPhoto from '@/shared/assets/forestPhoto.png'
 
+import logo from '@/shared/assets/Logo.svg'
 import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
@@ -71,16 +74,8 @@ export default function LoginPage() {
                   type="password"
                 />
                 <button type="button" id="showPass">
-                  <img
-                    className="absolute right-4 top-11 h-6 w-6"
-                    src="/src/assets/eyeSlash.svg"
-                    id="closeEyeImage"
-                  />
-                  <img
-                    className="absolute right-4 top-11 hidden h-6 w-6"
-                    src="/src/assets/eye.svg"
-                    id="openEyeImage"
-                  />
+                  <EyeSlashIcon className="size-5 absolute right-4 top-11 h-6 w-6" />
+                  <EyeIcon className="size-5 absolute right-4 top-11 hidden h-6 w-6" />
                 </button>
               </div>
               <a
@@ -100,7 +95,7 @@ export default function LoginPage() {
           </div>
           <img
             className="w-full lg:h-screen lg:w-auto lg:py-4 lg:pl-4"
-            src="/src/assets/forestPhoto.png"
+            src={forestPhoto}
             alt="forest photo"
           />
         </div>

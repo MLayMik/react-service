@@ -17,9 +17,9 @@ export default function Slider() {
     <>
       <div className="flex justify-between">
         <div className="flex items-center gap-3">
-          <Sticker>
-            <img src="/src/assets/Stickers/StickerFire.png" alt="" />
-          </Sticker>
+          <div className="paragraphIcon mr-3 rounded-full bg-white p-2 text-2xl">
+            🔥
+          </div>
           <p className="font-jakarta font-bold text-[40px]">Гарячі пропозиції</p>
         </div>
         <div className="flex gap-3">

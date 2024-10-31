@@ -1,3 +1,7 @@
+import manager from '@/shared/assets/manager.png'
+import trackOrder from '@/shared/assets/trackOrder.png'
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
+
 export default function ProfileHome() {
   return (
     <div
@@ -14,7 +18,7 @@ export default function ProfileHome() {
           className="card flex flex-col gap-6 rounded-2xl bg-white px-4 pb-6 pt-4"
         >
           <img
-            src="/src/assets/manager.png"
+            src={manager}
             alt="track order image"
           />
           <div className="flex flex-col gap-1.5">
@@ -31,7 +35,7 @@ export default function ProfileHome() {
               className="flex items-center gap-1 self-start text-sm font-medium text-blue-600 transition-colors duration-300 hover:text-blue-800"
             >
               Перейти до замовлень
-              <img src="/src/assets/ChevronRightSmallBlue.svg" />
+              <ChevronRightIcon className="size-5" />
             </button>
           </div>
         </div>
@@ -39,7 +43,7 @@ export default function ProfileHome() {
           className="card flex flex-col gap-6 rounded-2xl bg-white px-4 pb-6 pt-4"
         >
           <img
-            src="/src/assets/trackOrder.png"
+            src={trackOrder}
             alt="person manager"
           />
           <div className="flex flex-col gap-1.5">
