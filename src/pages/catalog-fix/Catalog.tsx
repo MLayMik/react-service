@@ -1,3 +1,4 @@
+import { AdjustmentsHorizontalIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import Cart from '../../widgets/product-card/ProductCard'
 
 export default function Catalog() {
@@ -30,15 +31,12 @@ export default function Catalog() {
           <p className="opacity-50">
             <a href="/">Головна</a>
           </p>
-          <img src="/src/assets/ChevronRightSmall.svg" />
+          <ChevronRightIcon className="size-3" />
           <p className="cursor-pointer">Каталог</p>
         </div>
         <div className="mb-6 flex items-center gap-3 md:mb-8">
-          <div className="paragraphIcon rounded-full bg-white p-2">
-            <img
-              src="/src/assets/toolsIcon.svg"
-              alt="tools icon"
-            />
+          <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
+            🛠️
           </div>
           <h1
             className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
@@ -59,10 +57,10 @@ export default function Catalog() {
               className="card mb-8 flex w-full justify-between rounded-2xl px-6 py-3 lg:hidden"
             >
               <div className="flex items-center gap-3">
-                <img src="/src/assets/filterIcon.svg" />
+                <AdjustmentsHorizontalIcon className="size-5 text-blue-600" />
                 <p className="font-medium text-gray-900">Фільтр</p>
               </div>
-              <img src="/src/assets/chevronDown.svg" />
+              <ChevronDownIcon className="size-5" />
             </button>
             <div
               className="mb-10 grid gap-5 min-[400px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3"
@@ -76,10 +74,7 @@ export default function Catalog() {
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCardLiked}} */}
             </div>
             <div className="flex items-center justify-center gap-2">
-              <img
-                src="/src/assets/ChevronLeftLight.svg"
-                className="cursor-pointer"
-              />
+              <ChevronLeftIcon className="size-5 " />
               <a
                 className="flex h-6 w-6 cursor-pointer items-center justify-center rounded border border-slate-300 text-sm font-medium leading-5 text-blue-600"
               >
@@ -105,10 +100,7 @@ export default function Catalog() {
               >
                 36
               </a>
-              <img
-                src="/src/assets/ChevronRightLight.svg"
-                className="cursor-pointer"
-              />
+              <ChevronRightIcon className="size-5" />
             </div>
           </div>
         </div>

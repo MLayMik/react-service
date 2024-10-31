@@ -1,4 +1,6 @@
 import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+import wayIcon from '@/wayIcon.svg'
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 export default function Contacts() {
   return (
@@ -11,16 +13,13 @@ export default function Contacts() {
           <p className="opacity-50">
             <a href="/">Головна</a>
           </p>
-          <img src="/src/assets/ChevronRightSmall.svg" />
+          <ChevronRightIcon className="size-3" />
           <p>Контакти</p>
         </div>
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-3">
-            <div className="paragraphIcon p-2 rounded-full bg-white">
-              <img
-                src="/src/assets/phoneBigIcon.svg"
-                alt="phone big icon"
-              />
+            <div className="paragraphIcon p-2 rounded-full bg-white text-2xl">
+              📱
             </div>
             <h1
               className="text-gray-900 font-jakarta font-bold sm:leading-extra-height sm:text-big text-2xl leading-[26px] whitespace-nowrap"
@@ -76,7 +75,7 @@ export default function Contacts() {
         <ButtonMain>
           <div className="flex gap-2.5 items-center mb-6">
             <img
-              src="/src/assets/wayIcon.svg"
+              src={wayIcon}
               alt="way icon"
             />
             <p className="text-xs font-medium">Прокласти маршрут</p>

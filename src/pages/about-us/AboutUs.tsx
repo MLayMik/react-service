@@ -1,6 +1,13 @@
 import Map from '@/features/map/Map'
+import aboutUsPhoto from '@/shared/assets/aboutUsPhoto.png'
+import person5 from '@/shared/assets/person5.png'
+import personBeard from '@/shared/assets/personBeard.png'
+import personBrutal from '@/shared/assets/personBrutal.png'
+import personOne from '@/shared/assets/personOne.png'
+import personPrickly from '@/shared/assets/personPrickly.png'
+import personWithWheel from '@/shared/assets/personWithWheel.png'
 import ButtonMain from '@/shared/ui/buttons/ButtonMain'
-import { ChevronRightIcon } from '@heroicons/react/24/solid'
+import { ArrowLongRightIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
 export default function AboutUs() {
@@ -22,7 +29,7 @@ export default function AboutUs() {
           >
             <div className="flex flex-col gap-5">
               <div className="flex items-center gap-3">
-                <div className="paragraphIcon rounded-full bg-white p-2">
+                <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
                   🙌
                 </div>
                 <h1
@@ -50,7 +57,7 @@ export default function AboutUs() {
                 інших спеціалістів.
               </p>
               <div className="flex items-center gap-2.5">
-                <h2 className="text-big font-bold leading-[60px] text-blue-600">150</h2>
+                <h2 className="text-[40px] font-bold leading-[60px] text-blue-600">150</h2>
                 <p className="text-sm leading-6 text-gray-900">
                   людей в команді
                   {' '}
@@ -61,7 +68,7 @@ export default function AboutUs() {
             </div>
             <img
               className="w-full md:w-[500px] lg:w-auto"
-              src="/src/assets/aboutUsPhoto.png"
+              src={aboutUsPhoto}
               alt="about us image"
             />
           </div>
@@ -69,11 +76,8 @@ export default function AboutUs() {
         <div className="mb-20 bg-[#FBFDFF] py-24 md:mb-36 lg:py-[120px]">
           <div className="container">
             <div className="mb-6 flex items-start gap-0.5 md:mb-10">
-              <div className="paragraphIcon mr-3 rounded-full bg-white p-2">
-                <img
-                  src="/src/assets/advantagesStarIcon.svg"
-                  alt="advantages star icon"
-                />
+              <div className="paragraphIcon mr-3 rounded-full bg-white p-2 еуче-2чд">
+                🌟
               </div>
               <div>
                 <h1
@@ -98,11 +102,8 @@ export default function AboutUs() {
 
         <div className="container mb-24 md:mb-28">
           <div className="mb-10 flex items-center gap-3">
-            <div className="paragraphIcon rounded-full bg-white p-2">
-              <img
-                src="/src/assets/toolsIcon.svg"
-                alt="tools Icon"
-              />
+            <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
+              🛠️
             </div>
             <h1
               className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
@@ -114,12 +115,10 @@ export default function AboutUs() {
             <div className="flex flex-col gap-36">
               <div className="flex flex-col gap-7">
                 <img
-                  src="/src/assets/personOne.png"
+                  src={personOne}
                   className="rounded-2xl"
                 />
-                <div
-                  className="flex justify-between font-inter font-medium leading-small"
-                >
+                <div className="flex justify-between font-inter font-medium leading-small">
                   <p className="text-neutral-800">Дмитро Евременко</p>
                   <p className="text-slate-500">Електрик</p>
                 </div>
@@ -127,7 +126,7 @@ export default function AboutUs() {
               </div>
               <div className="flex flex-col gap-7">
                 <img
-                  src="/src/assets/personPrickly.png"
+                  src={personPrickly}
                   className="rounded-2xl"
                 />
                 <div
@@ -140,7 +139,7 @@ export default function AboutUs() {
               </div>
               <div className="flex flex-col gap-7">
                 <img
-                  src="/src/assets/personBeard.png"
+                  src={personBeard}
                   className="rounded-2xl"
                 />
                 <div
@@ -155,7 +154,7 @@ export default function AboutUs() {
             <div className="flex flex-col gap-36 pt-36">
               <div className="flex flex-col gap-7">
                 <img
-                  src="/src/assets/personWithWheel.png"
+                  src={personWithWheel}
                   className="rounded-2xl"
                 />
                 <div
@@ -168,7 +167,7 @@ export default function AboutUs() {
               </div>
               <div className="flex flex-col gap-7">
                 <img
-                  src="/src/assets/person5.png"
+                  src={person5}
                   className="rounded-2xl"
                 />
                 <div
@@ -181,7 +180,7 @@ export default function AboutUs() {
               </div>
               <div className="flex flex-col gap-7">
                 <img
-                  src="/src/assets/personBrutal.png"
+                  src={personBrutal}
                   className="rounded-2xl"
                 />
                 <div
@@ -206,11 +205,8 @@ export default function AboutUs() {
             <div className="flex items-start">
               <div className="flex flex-col justify-start gap-5">
                 <div className="mr-4 flex items-center gap-3">
-                  <div className="paragraphIcon mr-3 rounded-full bg-white p-2">
-                    <img
-                      src="/src/assets/messageCloudIcon.svg"
-                      alt="message cloud icon"
-                    />
+                  <div className="paragraphIcon mr-3 rounded-full bg-white p-2 text-2xl">
+                    💬
                   </div>
                   <h1
                     className="font-jakarta text-3xl font-bold leading-normal text-white lg:text-big lg:leading-extra-height"
@@ -233,7 +229,7 @@ export default function AboutUs() {
                 >
                   Всі відгуки
                 </p>
-                <img src="/src/assets/RightArrowWhite.svg" />
+                <ArrowLongRightIcon className="size-5 text-white" />
               </a>
             </div>
             <ButtonMain>
@@ -257,7 +253,7 @@ export default function AboutUs() {
               >
                 Всі відгуки
               </p>
-              <img src="/src/assets/RightArrowWhite.svg" />
+              <ArrowLongRightIcon className="text-white size-5" />
             </a>
           </div>
         </div>

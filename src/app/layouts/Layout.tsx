@@ -13,7 +13,6 @@ export default function Layout() {
     { section: '/services', label: 'Послуги' },
     { section: '/about-us', label: 'Про нас' },
     { section: '/contacts', label: 'Контакти' },
-    { section: '/posts', label: 'Блог' },
   ]
   const { signOut } = useUserStore.getState()
   const navigate = useNavigate()

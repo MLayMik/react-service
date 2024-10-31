@@ -8,3 +8,8 @@
     @apply mx-auto;
   }
 }
+
+.paragraphIcon {
+  filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.08))
+    drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.04));
+}
