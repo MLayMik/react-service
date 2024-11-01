@@ -1,2 +1,2 @@
-export { Slider } from './Slider'
-export { SliderCard } from './SliderCard'
+export { Slider } from './SliderProduct'
+export { SliderCard } from './SliderProductCard'

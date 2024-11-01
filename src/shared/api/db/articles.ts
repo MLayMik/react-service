@@ -84,7 +84,7 @@ const articles: z.infer<typeof BaseArticleSchema>[] = [
     name: 'Проверка системы охлаждения',
     description: 'Диагностика и проверка системы охлаждения двигателя',
     date: '2024-04-11',
-    preview_image: 'https://autorai.by/images/articles/news/germet.jpg',
+    preview_image: 'https://ak039.ru/wp-content/uploads/2020/04/Screenshot_9-600x276.jpg',
     paragraphs,
   },
   {
@@ -193,15 +193,33 @@ const articles: z.infer<typeof BaseArticleSchema>[] = [
   },
 ]
 
+// function generateArticles(
+//   articlesArray: z.infer<typeof BaseArticleSchema>[],
+// ): z.infer<typeof ArticleSchema>[] {
+//   return articlesArray.map(article => ({
+//     ...article,
+//     similar_articles: articles
+//       .filter(a => a.id !== article.id)
+//       .slice(0, 5),
+//   }))
+// }
+
+function shuffleArray<T>(array: T[]): T[] {
+  return array
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+}
+
 function generateArticles(
   articlesArray: z.infer<typeof BaseArticleSchema>[],
 ): z.infer<typeof ArticleSchema>[] {
-  return articlesArray.map(article => ({
+  return shuffleArray(articlesArray.map(article => ({
     ...article,
-    similar_articles: articles
-      .filter(a => a.id !== article.id)
-      .slice(0, 5),
-  }))
+    similar_articles: shuffleArray(
+      articlesArray.filter(a => a.id !== article.id),
+    ).slice(0, 5),
+  })))
 }
 
 const articlesWithSimilar: z.infer<typeof ArticleSchema>[] = generateArticles(articles)

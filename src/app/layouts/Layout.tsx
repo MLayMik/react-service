@@ -63,7 +63,7 @@ export default function Layout() {
       </menu>
       <Outlet />
       <footer>
-        <div className="bg-gray-100 py-6 relative z-40">
+        <div className="bg-[#F4F5F7] py-6 relative z-40">
           <div
             className="mx-auto max-w-[1440px] justify-between px-5 xl:flex 2xl:px-[150px]"
           >
