@@ -1,4 +1,4 @@
-import Map from '@/features/map/Map'
+import { Map } from '@/features/map/Map'
 import aboutUsPhoto from '@/shared/assets/aboutUsPhoto.png'
 import person5 from '@/shared/assets/person5.png'
 import personBeard from '@/shared/assets/personBeard.png'
@@ -6,11 +6,11 @@ import personBrutal from '@/shared/assets/personBrutal.png'
 import personOne from '@/shared/assets/personOne.png'
 import personPrickly from '@/shared/assets/personPrickly.png'
 import personWithWheel from '@/shared/assets/personWithWheel.png'
-import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 import { ArrowLongRightIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
-export default function AboutUs() {
+export function AboutUs() {
   return (
     <>
       <div className="max-w-[1440px] mx-auto font-montserrat">

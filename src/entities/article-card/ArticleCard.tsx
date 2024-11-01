@@ -1,11 +1,14 @@
-// import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
+import articles from '@/shared/api/db/articles'
+import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
 
-export default function ArticleItem() {
+export function ArticleCard() {
+  // console.log(articles)
   return (
+
     <div className="flex justify-between gap-5">
-      {/* {дбстатей.map(article => (
+      {/* {articles.map(article => (
         <div key={article.id} className="flex-1 font-montserrat">
-          <img src={article.img} alt={article.title} className="w-full h-auto rounded-2xl mb-7" />
+          <img src={article.image} alt={article.title} className="w-full h-auto rounded-2xl mb-7" />
           <div className="flex flex-col gap-3">
             <span className="font-semibold text-xs text-[#9798AF]">{article.date}</span>
             <a href="/" className="flex justify-between">

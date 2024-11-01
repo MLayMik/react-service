@@ -6,7 +6,7 @@ interface ButtonMainProps {
   type?: 'submit' | 'button' | 'reset'
 }
 
-export default function ButtonMain({ children, onClick, type = 'button' }: ButtonMainProps) {
+export function ButtonMain({ children, onClick, type = 'button' }: ButtonMainProps) {
   return (
     <button type={type} onClick={onClick} className="bg-[#246DEF] py-3 px-8 rounded-[30px] text-white font-bold">
       {children}

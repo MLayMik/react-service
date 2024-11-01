@@ -1,4 +1,4 @@
-export default function ProfileInfo() {
+export function ProfileInfo() {
   return (
     <div
       className="tab mb-24 md:mb-32"

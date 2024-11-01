@@ -6,7 +6,7 @@ interface RequireAuthProps {
   children: ReactNode
 }
 
-export default function RequireAuth({ children }: RequireAuthProps) {
+export function RequireAuth({ children }: RequireAuthProps) {
   const location = useLocation()
   const { user } = useUserStore.getState()
   if (!user) {

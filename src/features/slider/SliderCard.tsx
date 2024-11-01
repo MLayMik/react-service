@@ -1,5 +1,5 @@
 import star from '@/shared/assets/starIcon.svg'
-import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 
 interface Review {
   rating: number
@@ -17,7 +17,7 @@ interface PropsSlider {
   discount: boolean
 }
 
-export default function SliderItem({ name, description, price, price_with_discount, image, reviews, discount }: PropsSlider) {
+export function SliderCard({ name, description, price, price_with_discount, image, reviews, discount }: PropsSlider) {
   return (
     <div
       className="

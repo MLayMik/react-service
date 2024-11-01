@@ -1,7 +1,7 @@
-import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 import { MapIcon } from '@heroicons/react/24/solid'
 
-export default function Map() {
+export function Map() {
   return (
     <div className="relative h-[800px] w-full lg:h-[669px] b-0">
       <div className="absolute h-full w-full">

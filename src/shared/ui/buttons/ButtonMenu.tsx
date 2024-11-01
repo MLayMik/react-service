@@ -6,7 +6,7 @@ interface ButtonMenuProps {
   footer?: boolean
 }
 
-export default function ButtonMenu({ children, section, footer = false }: ButtonMenuProps) {
+export function ButtonMenu({ children, section, footer = false }: ButtonMenuProps) {
   return (
     <div className="">
       <NavLink

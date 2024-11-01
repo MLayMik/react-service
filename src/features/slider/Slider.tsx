@@ -1,16 +1,16 @@
 import type { Swiper as SwiperType } from 'swiper'
 import products from '@/shared/api/db/products'
-import Sticker from '@/shared/ui/sticker/Sticker'
+import { Sticker } from '@/shared/ui/sticker/Sticker'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SliderItem from './SliderItem'
+import { SliderCard } from './SliderCard'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-coverflow'
 
-export default function Slider() {
+export function Slider() {
   const swiperRef = useRef<SwiperType | null>(null)
 
   return (
@@ -44,7 +44,7 @@ export default function Slider() {
       >
         {/* {console.log(products)} */}
         {products.map(product =>
-          <SwiperSlide key={product.code} className="h-auto"><SliderItem {...product} /></SwiperSlide>,
+          <SwiperSlide key={product.code} className="h-auto"><SliderCard {...product} /></SwiperSlide>,
         )}
       </Swiper>
     </>

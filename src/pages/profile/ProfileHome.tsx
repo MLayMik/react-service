@@ -2,7 +2,7 @@ import manager from '@/shared/assets/manager.png'
 import trackOrder from '@/shared/assets/trackOrder.png'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
-export default function ProfileHome() {
+export function ProfileHome() {
   return (
     <div
       className="tab mb-24 md:mb-32"

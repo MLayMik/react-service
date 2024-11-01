@@ -1,4 +1,4 @@
-import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 
 interface Props {
   category: string
@@ -6,7 +6,7 @@ interface Props {
   image: string
 }
 
-export default function ServicesHomeItem({ category, description, image }: Props) {
+export function ServicesCard({ category, description, image }: Props) {
   return (
     <div className="shadow-custom1 flex p-2.5 rounded-2xl gap-4">
       <div>

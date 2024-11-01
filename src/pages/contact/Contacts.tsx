@@ -1,8 +1,8 @@
-import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 import wayIcon from '@/wayIcon.svg'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
-export default function Contacts() {
+export function Contacts() {
   return (
     <div className="max-w-[1440px] mx-auto">
 

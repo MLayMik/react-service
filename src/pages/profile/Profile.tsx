@@ -2,7 +2,7 @@ import heartIcon from '@/shared/assets/HeartRedIcon.svg'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import { Link, Outlet } from 'react-router-dom'
 
-export default function Profile() {
+export function Profile() {
   return (
     <div className="container px-5 max-[425px]:px-3 xl:px-[150px] font-montserrat">
       <div

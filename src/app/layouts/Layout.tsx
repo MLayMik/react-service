@@ -1,7 +1,7 @@
 import { useUserStore } from '@/entities/user/store/UserStore'
 import logo from '@/shared/assets/Logo.svg'
-import ButtonMain from '@/shared/ui/buttons/ButtonMain'
-import ButtonMenu from '@/shared/ui/buttons/ButtonMenu'
+import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
+import { ButtonMenu } from '@/shared/ui/buttons/ButtonMenu'
 import { HeartIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 

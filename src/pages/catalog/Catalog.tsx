@@ -1,7 +1,7 @@
 import { AdjustmentsHorizontalIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import Cart from '../../widgets/product-card/ProductCard'
+// import Cart from '../../widgets/product-card/ProductCard'
 
-export default function Catalog() {
+export function Catalog() {
   return (
     <>
       <div
@@ -65,7 +65,7 @@ export default function Catalog() {
             <div
               className="mb-10 grid gap-5 min-[400px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3"
             >
-              <Cart />
+              {/* <Cart /> */}
               {/* {{>ProductCard}} {{>ProductCard}} {{>ProductCardLiked}}
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCard}}
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCard}}

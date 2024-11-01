@@ -1,4 +1,4 @@
-export default function ProfileOrders() {
+export function ProfileOrders() {
   return (
     <div
       className="tab mb-24 md:mb-32"

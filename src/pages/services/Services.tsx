@@ -1,6 +1,6 @@
-import Map from '@/features/map/Map'
+import {Map} from '@/features/map/Map'
 
-export default function Services() {
+export function Services() {
   return (
     <>
       <div className="max-w-[1440px] mx-auto">

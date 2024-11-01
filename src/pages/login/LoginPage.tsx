@@ -4,13 +4,13 @@ import { useUserStore } from '@/entities/user/store/UserStore'
 import forestPhoto from '@/shared/assets/forestPhoto.png'
 
 import logo from '@/shared/assets/Logo.svg'
-import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-export default function LoginPage() {
+export function LoginPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const fromPage = location.state?.from?.pathname || '/'

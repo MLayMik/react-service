@@ -1,0 +1,1 @@
+export { ArticleSwiper } from './ArticleSwiper'

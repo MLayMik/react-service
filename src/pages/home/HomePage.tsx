@@ -1,14 +1,14 @@
-import ServicesHomeItem from '@/entities/services-card/ServicesCard'
-import Map from '@/features/map/Map'
-import Slider from '@/features/slider/Slider'
+import { ServicesCard } from '@/entities/services-card/ServicesCard'
+import { Map } from '@/features/map/Map'
+import { Slider } from '@/features/slider/Slider'
 import services from '@/shared/api/db/services'
 import lvivskaBaza from '@/shared/assets/lvіvska-avtobaza.png'
-import ButtonMain from '@/shared/ui/buttons/ButtonMain'
+import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 import { ArticleSwiper } from '@/widgets/article-swiper/ArticleSwiper'
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
 
-export default function HomePage() {
+export function HomePage() {
   return (
     <main>
       <div className=" max-w-[1440px] mx-auto mb-20">
@@ -36,7 +36,7 @@ export default function HomePage() {
               </a>
             </div>
             <div className="grid grid-cols-2 gap-5">
-              { services.sort(() => 0.5 - Math.random()).slice(0, 6).map(service => <ServicesHomeItem key={service.id} {...service} />)}
+              { services.sort(() => 0.5 - Math.random()).slice(0, 6).map(service => <ServicesCard key={service.id} {...service} />)}
             </div>
           </div>
         </div>
