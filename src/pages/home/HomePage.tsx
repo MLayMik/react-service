@@ -1,11 +1,13 @@
 import { ServicesCard } from '@/entities/services-card'
 import { Map } from '@/features/map'
-import { Slider } from '@/features/slider'
 import services from '@/shared/api/db/services'
 import lvivskaBaza from '@/shared/assets/lvіvska-avtobaza.png'
 import { BenefitCard } from '@/shared/ui/benefits/BenefitCard'
 import { ButtonMain } from '@/shared/ui/buttons'
 import { ArticleSwiper } from '@/widgets/article-swiper'
+import { SwiperProduct } from '@/widgets/product-swiper'
+import { ReviewSwiper } from '@/widgets/review-swiper'
+// import { ReviewSwiper } from '@/widgets/review-swiper/ReviewSwiper'
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
 
@@ -26,10 +28,8 @@ export function HomePage() {
           </div>
           <img className="rounded-[30px] size-[690px]" src={lvivskaBaza} alt="" />
         </div>
-        <div className="mb-[120px]">
-          <Slider />
-        </div>
-        <div className="flex flex-col mb-[100px]">
+        <SwiperProduct />
+        <div className="flex flex-col my-[100px]">
           <div className="flex items-center mb-8">
             <div className="paragraphIcon mr-3 rounded-full bg-white p-2 text-2xl">
               🤝
@@ -47,11 +47,8 @@ export function HomePage() {
         <div className="mb-20 bg-[#FBFDFF] py-20 lg:mb-36 lg:py-[120px]">
           <div className="container">
             <div className="mb-6 flex items-start gap-0.5 md:mb-10">
-              <div className="paragraphIcon mr-3 rounded-full bg-white p-2">
-                <img
-                  src="/src/assets/advantagesStarIcon.svg"
-                  alt="advantages star icon"
-                />
+              <div className="paragraphIcon mr-3 rounded-full bg-white p-2 text-2xl">
+                🌟
               </div>
               <div>
                 <h1
@@ -71,8 +68,50 @@ export function HomePage() {
             </div>
           </div>
         </div>
-        <div>
-          <ArticleSwiper />
+        <ArticleSwiper />
+      </div>
+      <div
+        className="py-[95px] [background:_linear-gradient(0deg,_rgba(36,_109,_239,_0.50)_0%,_rgba(36,_109,_239,_0.50)_100%),_url('/src/shared/assets/blueWavesBg.png'),_lightgray_0px_-73.061px_/_100%_129.949%_no-repeat;] lg:py-[120px]"
+      >
+        <div className="mx-auto max-w-[1440px] px-5 xl:px-[150px]">
+          <div className="mb-6 flex items-start justify-between">
+            <div className="flex items-start">
+              <div className="flex flex-col justify-start gap-5">
+                <div className="mr-4 flex items-center gap-3">
+                  <div className="paragraphIcon mr-3 rounded-full bg-white p-2 text-2xl">
+                    💬
+                  </div>
+                  <h1
+                    className="font-jakarta text-3xl font-bold leading-normal text-white lg:text-big lg:leading-extra-height"
+                  >
+                    Відгуки наших клієнтів
+                  </h1>
+                </div>
+                <p className="max-w-[500px] text-xs leading-5 text-white/70">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Viverra nunc ante velit vitae. Est tellus vitae, nullam
+                  lobortis enim. Faucibus amet.
+                </p>
+              </div>
+              <a
+                href="/reviews/"
+                className="group items-center gap-1 pt-3 flex"
+              >
+                <p
+                  className="whitespace-nowrap text-xs font-bold text-white transition-colors duration-300 group-hover:text-zinc-100"
+                >
+                  Всі відгуки
+                </p>
+                <ArrowLongRightIcon className="size-5 text-white" />
+              </a>
+            </div>
+            <ButtonMain>
+              Залишити відгук
+            </ButtonMain>
+          </div>
+          <div className="lg:block">
+            <ReviewSwiper />
+          </div>
         </div>
       </div>
       <Map />

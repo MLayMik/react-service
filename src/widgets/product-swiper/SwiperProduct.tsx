@@ -4,13 +4,13 @@ import { Sticker } from '@/shared/ui/sticker/Sticker'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SliderCard } from './SliderProductCard'
+import { SwiperProductCard } from './SwiperProductCard'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-coverflow'
 
-export function Slider() {
+export function SwiperProduct() {
   const swiperRef = useRef<SwiperType | null>(null)
 
   return (
@@ -44,7 +44,7 @@ export function Slider() {
       >
         {/* {console.log(products)} */}
         {products.map(product =>
-          <SwiperSlide key={product.code} className="h-auto"><SliderCard {...product} /></SwiperSlide>,
+          <SwiperSlide key={product.code} className="h-auto"><SwiperProductCard {...product} /></SwiperSlide>,
         )}
       </Swiper>
     </>
