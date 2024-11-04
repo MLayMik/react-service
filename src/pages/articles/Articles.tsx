@@ -1,7 +1,7 @@
 export function Articles() {
   return (
     <div>
-      articles
+      articles page
     </div>
   )
 }

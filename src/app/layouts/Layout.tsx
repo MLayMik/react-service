@@ -1,20 +1,14 @@
 import { useUserStore } from '@/entities/user/store/UserStore'
 import logo from '@/shared/assets/Logo.svg'
 import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
-import { ButtonMenu } from '@/shared/ui/buttons/ButtonMenu'
+import { Footer } from '@/shared/ui/footer/Footer'
+import { NavBar } from '@/shared/ui/nav-bar'
 import { HeartIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 
 // import { useAuth } from '../../components/hook/useAuth'
 
 export default function Layout() {
-  const menuItems = [
-    { section: '/', label: 'Головна' },
-    { section: '/catalog', label: 'Каталог' },
-    { section: '/services', label: 'Послуги' },
-    { section: '/about-us', label: 'Про нас' },
-    { section: '/contacts', label: 'Контакти' },
-  ]
   const { signOut } = useUserStore.getState()
   const navigate = useNavigate()
   const handleSubmit = () => {
@@ -58,27 +52,9 @@ export default function Layout() {
           </div>
         </div>
       </header>
-      <menu className="flex gap-20 justify-center pt-5 bg-[#F4F5F7] mb-14 text-sm font-montserrat">
-        {menuItems.map(item => <ButtonMenu key={item.section} section={item.section}>{item.label}</ButtonMenu>)}
-      </menu>
+      <NavBar />
       <Outlet />
-      <footer>
-        <div className="bg-[#F4F5F7] py-6 relative z-40">
-          <div
-            className="mx-auto max-w-[1440px] justify-between px-5 xl:flex 2xl:px-[150px]"
-          >
-            <Link to="/">
-              <img
-                src={logo}
-                alt="service tir logo"
-              />
-            </Link>
-            <ul className="mt-8 flex select-none flex-wrap items-center gap-9 text-gray-900 lg:gap-[53px] xl:mt-0 xl:justify-center">
-              {menuItems.map(item => <ButtonMenu key={item.section} footer section={item.section}>{item.label}</ButtonMenu>)}
-            </ul>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

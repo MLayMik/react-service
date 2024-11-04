@@ -1,4 +1,6 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Articles } from '@/pages/articles'
+import { Reviews } from '@/pages/reviews'
+import { Route, Routes } from 'react-router-dom'
 import { RequireAuth } from '../entities/user/requireAuth/RequireAuth'
 import { AboutUs } from '../pages/about-us/AboutUs'
 import { Catalog } from '../pages/catalog/Catalog'
@@ -22,11 +24,12 @@ function App() {
         <Route path="catalog" element={<Catalog />} />
         <Route path="services" element={<Services />} />
         <Route path="contacts" element={<Contacts />} />
+        <Route path="reviews" element={<Reviews />} />
+        <Route path="articles" element={<Articles />} />
         <Route path="about-us" element={<AboutUs />}>
           <Route />
           <Route />
         </Route>
-        <Route path="about" element={<Navigate to="/about-us" replace />} />
         <Route
           path="profile/"
           element={(

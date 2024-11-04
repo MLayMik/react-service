@@ -105,7 +105,7 @@ export function HomePage() {
                 <ArrowLongRightIcon className="size-5 text-white" />
               </a>
             </div>
-            <ButtonMain>
+            <ButtonMain variant='white'>
               Залишити відгук
             </ButtonMain>
           </div>
