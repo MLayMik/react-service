@@ -7,16 +7,14 @@ import { ButtonMain } from '@/shared/ui/buttons'
 import { ArticleSwiper } from '@/widgets/article-swiper'
 import { SwiperProduct } from '@/widgets/product-swiper'
 import { ReviewSwiper } from '@/widgets/review-swiper'
-// import { ReviewSwiper } from '@/widgets/review-swiper/ReviewSwiper'
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
 
 export function HomePage() {
   const BenefitsArray = []
   for (let i = 0; i < 8; i++) {
-    BenefitsArray.push(<BenefitCard />)
+    BenefitsArray.push(<BenefitCard key={i} />)
   }
-  // console.log(faker.internet.emoji())
   return (
     <main>
       <div className=" max-w-[1440px] mx-auto mb-20">
@@ -105,7 +103,7 @@ export function HomePage() {
                 <ArrowLongRightIcon className="size-5 text-white" />
               </a>
             </div>
-            <ButtonMain variant='white'>
+            <ButtonMain variant="white">
               Залишити відгук
             </ButtonMain>
           </div>

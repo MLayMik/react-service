@@ -5,7 +5,7 @@ import { links } from './config'
 export function NavBar() {
   return (
     <div
-      className="hidden bg-gray-100 text-sm md:block"
+      className="hidden bg-gray-100 text-sm md:block mb-14"
     >
       <ul
         className="

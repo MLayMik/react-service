@@ -1,19 +1,16 @@
 import { Articles } from '@/pages/articles'
+import { CartPage } from '@/pages/cart'
 import { Reviews } from '@/pages/reviews'
 import { Route, Routes } from 'react-router-dom'
 import { RequireAuth } from '../entities/user/requireAuth/RequireAuth'
-import { AboutUs } from '../pages/about-us/AboutUs'
-import { Catalog } from '../pages/catalog/Catalog'
-import { Contacts } from '../pages/contact/Contacts'
-import { HomePage } from '../pages/home/HomePage'
-import { LoginPage } from '../pages/login/LoginPage'
-import { Profile } from '../pages/profile/Profile'
-import { ProfileFavorite } from '../pages/profile/ProfileFavorite'
-import { ProfileHome } from '../pages/profile/ProfileHome'
-import { ProfileInfo } from '../pages/profile/ProfileInfo'
-import { ProfileOrders } from '../pages/profile/ProfileOrders'
-import { Services } from '../pages/services/Services'
-import Layout from './layouts/Layout'
+import { AboutUs } from '../pages/about-us'
+import { Catalog } from '../pages/catalog'
+import { Contacts } from '../pages/contact'
+import { HomePage } from '../pages/home'
+import { LoginPage } from '../pages/login'
+import { Profile, ProfileFavorite, ProfileHome, ProfileInfo, ProfileOrders } from '../pages/profile'
+import { Services } from '../pages/services'
+import { Layout } from './layouts'
 
 function App() {
   return (
@@ -26,6 +23,7 @@ function App() {
         <Route path="contacts" element={<Contacts />} />
         <Route path="reviews" element={<Reviews />} />
         <Route path="articles" element={<Articles />} />
+        <Route path="cart" element={<CartPage />} />
         <Route path="about-us" element={<AboutUs />}>
           <Route />
           <Route />

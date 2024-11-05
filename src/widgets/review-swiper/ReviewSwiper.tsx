@@ -28,12 +28,12 @@ export function ReviewSwiper() {
 
       </Swiper>
       <div className="flex justify-center gap-3">
-        <button type="button" onClick={() => swiperRef.current?.slidePrev()}>
+        <button onClick={() => swiperRef.current?.slidePrev()}>
           <Sticker>
             <ChevronLeftIcon className="size-5" />
           </Sticker>
         </button>
-        <button type="button" onClick={() => swiperRef.current?.slideNext()}>
+        <button onClick={() => swiperRef.current?.slideNext()}>
           <Sticker>
             <ChevronRightIcon className="size-5" />
           </Sticker>

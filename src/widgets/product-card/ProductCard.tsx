@@ -17,7 +17,7 @@ interface PropsSlider {
   discount: boolean
 }
 
-export function SwiperProductCard({ name, description, price, price_with_discount, image, reviews, discount }: PropsSlider) {
+export function ProductCard({ name, description, price, price_with_discount, image, reviews, discount }: PropsSlider) {
   return (
     <div
       className="

@@ -1,4 +1,7 @@
+import products from '@/shared/api/db/products'
+import { ProductCard } from '@/widgets/product-card'
 import { AdjustmentsHorizontalIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom'
 // import Cart from '../../widgets/product-card/ProductCard'
 
 export function Catalog() {
@@ -29,7 +32,7 @@ export function Catalog() {
           className="mb-8 flex items-center gap-1 text-xs text-gray-900 transition-colors duration-300 hover:text-gray-950 md:mb-10"
         >
           <p className="opacity-50">
-            <a href="/">Головна</a>
+            <Link to="/">Головна</Link>
           </p>
           <ChevronRightIcon className="size-3" />
           <p className="cursor-pointer">Каталог</p>
@@ -66,6 +69,7 @@ export function Catalog() {
               className="mb-10 grid gap-5 min-[400px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3"
             >
               {/* <Cart /> */}
+              {products.map(product => <ProductCard key={product.code} {...product} />)}
               {/* {{>ProductCard}} {{>ProductCard}} {{>ProductCardLiked}}
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCard}}
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCard}}

@@ -1,6 +1,7 @@
 import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 import wayIcon from '@/wayIcon.svg'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom'
 
 export function Contacts() {
   return (
@@ -11,7 +12,7 @@ export function Contacts() {
           className="text-gray-900 text-xs mb-8 sm:mb-10 flex items-center transition-colors duration-300 hover:text-gray-950 gap-1"
         >
           <p className="opacity-50">
-            <a href="/">Головна</a>
+            <Link to="/">Головна</Link>
           </p>
           <ChevronRightIcon className="size-3" />
           <p>Контакти</p>

@@ -4,7 +4,8 @@ import { Sticker } from '@/shared/ui/sticker/Sticker'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SwiperProductCard } from './SwiperProductCard'
+import { ProductCard } from '../product-card'
+
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -42,9 +43,8 @@ export function SwiperProduct() {
         onSwiper={swiper => (swiperRef.current = swiper)}
         className="p-5 mb-5"
       >
-        {/* {console.log(products)} */}
         {products.map(product =>
-          <SwiperSlide key={product.code} className="h-auto"><SwiperProductCard {...product} /></SwiperSlide>,
+          <SwiperSlide key={product.code} className="h-auto"><ProductCard {...product} /></SwiperSlide>,
         )}
       </Swiper>
     </>
