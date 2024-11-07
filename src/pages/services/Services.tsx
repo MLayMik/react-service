@@ -1,4 +1,4 @@
-import {Map} from '@/features/map/Map'
+import { Map } from '@/features/map/Map'
 
 export function Services() {
   return (

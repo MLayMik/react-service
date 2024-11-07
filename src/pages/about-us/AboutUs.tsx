@@ -7,6 +7,7 @@ import personOne from '@/shared/assets/personOne.png'
 import personPrickly from '@/shared/assets/personPrickly.png'
 import personWithWheel from '@/shared/assets/personWithWheel.png'
 import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
+import { ReviewSwiper } from '@/widgets/review-swiper'
 import { ArrowLongRightIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 
@@ -232,20 +233,21 @@ export function AboutUs() {
                 <ArrowLongRightIcon className="size-5 text-white" />
               </a>
             </div>
-            <ButtonMain>
+            <ButtonMain variant='white'>
               Залишити відгук
             </ButtonMain>
           </div>
           {/* {{>ReviewModal}} */}
           <div className="hidden lg:block">
+            <ReviewSwiper />
             {/* {{>ReviewsSwiper}} */}
           </div>
           <div className="mb-7 flex w-full flex-col gap-4 lg:hidden">
             {/* {{>ReviewCard}} {{>ReviewCard}} */}
           </div>
           <div className="flex w-full flex-col items-center gap-7 lg:hidden">
-            <a
-              href="/reviews/"
+            <Link
+              to="/reviews/"
               className="group flex items-center justify-center gap-1 pt-3"
             >
               <p
@@ -254,7 +256,7 @@ export function AboutUs() {
                 Всі відгуки
               </p>
               <ArrowLongRightIcon className="text-white size-5" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

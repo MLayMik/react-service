@@ -18,3 +18,23 @@
     0px 8px 16px 0px rgba(0, 0, 0, 0.08),
     0px 0px 4px 0px rgba(0, 0, 0, 0.04);
 }
+
+.custom-pagination {
+  display: flex; /* Устанавливаем inline-flex, чтобы пагинация занимала только нужную ширину */
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* Расстояние между точками */
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  background-color: #fff; /* Белый цвет точек */
+  width: 10px;
+  height: 10px;
+  opacity: 0.6;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
