@@ -2,7 +2,7 @@ import { Articles } from '@/pages/articles'
 import { CartPage } from '@/pages/cart'
 import { RegisterPage } from '@/pages/register'
 import { Reviews } from '@/pages/reviews'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { RequireAuth } from '../entities/user/requireAuth/RequireAuth'
 import { AboutUs } from '../pages/about-us'
 import { Catalog } from '../pages/catalog'
@@ -28,19 +28,23 @@ function App() {
         <Route path="cart" element={<CartPage />} />
         <Route path="about-us" element={<AboutUs />}></Route>
         <Route
-          path="profile/"
+          path="profile"
           element={(
             <RequireAuth>
-              <Profile>
-              </Profile>
+              <Profile />
             </RequireAuth>
           )}
         >
-          <Route index element={<ProfileHome />} />
+          <Route path="home" index element={<ProfileHome />} />
+          <Route
+            path=""
+            element={<Navigate to="home" replace />}
+          />
           <Route path="info" element={<ProfileInfo />} />
           <Route path="favorite" element={<ProfileFavorite />} />
           <Route path="orders" element={<ProfileOrders />} />
         </Route>
+
       </Route>
     </Routes>
   )

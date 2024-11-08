@@ -1,6 +1,7 @@
 import heartIcon from '@/shared/assets/HeartRedIcon.svg'
+import { Sticker } from '@/shared/ui/sticker'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 
 export function Profile() {
   return (
@@ -18,9 +19,9 @@ export function Profile() {
         <p className="whitespace-nowrap">Особистий кабінет</p>
       </div>
       <div className="mb-8 flex items-center gap-3">
-        <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
+        <Sticker>
           💼
-        </div>
+        </Sticker>
         <h1
           className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
         >
@@ -30,81 +31,96 @@ export function Profile() {
       <div
         className="mb-9 flex flex-wrap gap-8 whitespace-nowrap pl-4 md:items-center"
       >
-        <Link
-          to=""
+        <NavLink
+          to="home"
           type="button"
           className="tabBtn group relative"
-          id="mainTabBtn"
-          data-tab="#mainTab"
         >
-          <div
-            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300 text-2xl"
-          >
-            💼
-          </div>
-          <p
-            className="inline-block rounded-lg bg-gray-100 py-2 pl-9 pr-5 text-xs font-medium text-slate-700 duration-300"
-          >
-            Головна
-          </p>
-        </Link>
-        <Link
+          {({ isActive }) => (
+            <>
+              <p className={
+                `absolute -left-4 -top-2 z-10 rounded-full border-2 border-white p-2 text-2xl duration-300 ${isActive ? 'bg-[#4584FF]' : 'bg-white'}`
+              }
+              >
+                💼
+              </p>
+              <p className={
+                `inline-block rounded-lg py-2 pl-12 pr-5 text-xs font-medium text-slate-700 duration-300 ${isActive ? 'bg-[#4584FF]' : 'bg-white'}`
+              }
+              >
+                Головна
+              </p>
+            </>
+          )}
+        </NavLink>
+        <NavLink
           to="info"
           className="tabBtn group relative"
-          id="infoTabBtn"
-          data-tab="#infoTab"
         >
-          <div
-            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300 text-2xl"
-          >
-            📝
-          </div>
-          <p
-            className="inline-block rounded-lg bg-gray-100 py-2 pl-9 pr-5 text-xs font-medium text-slate-700 duration-300"
-          >
-            Особисті данні
-          </p>
-        </Link>
-        <Link
+          {({ isActive }) => (
+            <>
+              <p className={
+                `absolute -left-4 -top-2 z-10 rounded-full border-2 border-white p-2 text-2xl duration-300 ${isActive ? 'bg-[#4584FF]' : 'bg-white'}`
+              }
+              >
+                📝
+              </p>
+              <p className={
+                `inline-block rounded-lg py-2 pl-12 pr-5 text-xs font-medium text-slate-700 duration-300 ${isActive ? 'bg-[#4584FF]' : 'bg-white'}`
+              }
+              >
+                Особисті данні
+              </p>
+            </>
+          )}
+        </NavLink>
+        <NavLink
           to="favorite"
-          type="button"
           className="tabBtn group relative"
-          id="favoriteTabBtn"
-          data-tab="#favoriteTab"
         >
-          <div
-            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300"
-          >
+          {({ isActive }) => (
+            <>
+              <div
+                className={
+                  `absolute -left-4 -top-2 z-10 rounded-full border-2 border-white p-2 text-2xl duration-300 ${isActive ? 'bg-[#4584FF]' : 'bg-white'}`
+                }
+              >
 
-            <img
-              src={heartIcon}
-              alt="case icon"
-            />
-          </div>
-          <p
-            className="inline-block rounded-lg bg-gray-100 py-2 pl-9 pr-5 text-xs font-medium text-slate-700 duration-300"
-          >
-            Обране
-          </p>
-        </Link>
-        <Link
+                <img
+                  src={heartIcon}
+                  alt="case icon"
+                />
+              </div>
+              <p className={
+                `inline-block rounded-lg py-2 pl-9 pr-5 text-xs font-medium text-slate-700 duration-300 ${isActive ? 'bg-[#4584FF]' : 'bg-white'}`
+              }
+              >
+                Обране
+              </p>
+            </>
+          )}
+        </NavLink>
+        <NavLink
           to="orders"
-          type="button"
           className="tabBtn group relative"
-          id="ordersTabBtn"
-          data-tab="#ordersTab"
         >
-          <div
-            className="absolute -left-4 -top-2 z-10 rounded-full border-2 border-white bg-gray-100 p-2 duration-300 text-2xl"
-          >
-            📦
-          </div>
-          <p
-            className="inline-block rounded-lg bg-gray-100 py-2 pl-9 pr-5 text-xs font-medium text-slate-700 duration-300"
-          >
-            Мої замовлення
-          </p>
-        </Link>
+          {({ isActive }) => (
+            <>
+              <p className={
+                `absolute -left-4 -top-2 z-10 rounded-full border-2 border-white p-2 text-2xl duration-300 ${isActive ? 'bg-[#4584FF]' : 'bg-white'}`
+              }
+              >
+                📦
+              </p>
+              <p className={
+                `inline-block rounded-lg py-2 pl-12 pr-5 text-xs font-medium text-slate-700 duration-300 ${isActive ? 'bg-[#4584FF]' : 'bg-white'}`
+              }
+              >
+                Мої замовлення
+              </p>
+            </>
+          )}
+        </NavLink>
       </div>
       <Outlet />
     </div>

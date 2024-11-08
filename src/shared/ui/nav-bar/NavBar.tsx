@@ -4,14 +4,9 @@ import { links } from './config'
 
 export function NavBar() {
   return (
-    <div
-      className="hidden bg-gray-100 text-sm md:block mb-14"
-    >
+    <div className="hidden bg-gray-100 text-sm md:block mb-14">
       <ul
-        className="
-      flex w-full select-none items-center justify-center
-      gap-14 text-gray-900
-      "
+        className="flex w-full select-none items-center justify-center gap-14 text-gray-900"
       >
         {links.map(link => (
           <NavLink
@@ -26,7 +21,6 @@ export function NavBar() {
             {link.name}
           </NavLink>
         ))}
-
       </ul>
     </div>
   )

@@ -49,7 +49,6 @@ export function Layout() {
             <ShoppingCartIcon className="size-5" />
             <p className="whitespace-nowrap">₴10 000</p>
           </Link>
-
         </div>
       </header>
       <NavBar />
