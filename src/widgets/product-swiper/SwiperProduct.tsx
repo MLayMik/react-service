@@ -44,7 +44,7 @@ export function SwiperProduct() {
         className="p-5 mb-5"
       >
         {products.map(product =>
-          <SwiperSlide key={product.code} className="h-auto"><ProductCard {...product} /></SwiperSlide>,
+          <SwiperSlide key={product.code} className="h-auto"><ProductCard product={product} /></SwiperSlide>,
         )}
       </Swiper>
     </>

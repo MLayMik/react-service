@@ -32,8 +32,11 @@ export const useUserStore = create<UserStore>((set) => {
   const storedCurrentUser = localStorage.getItem('currentUser')
   const currentUser: UserType | null = storedCurrentUser ? JSON.parse(storedCurrentUser) : null
 
-  const updateLocalStorage = (users: UserType[]) => {
+  const updateLocalStorage = (users: UserType[], currentUser?: UserType | null) => {
     localStorage.setItem('users', JSON.stringify(users))
+    if (currentUser) {
+      localStorage.setItem('currentUser', JSON.stringify(currentUser))
+    }
   }
 
   // Возвращаем состояние для zustand
@@ -104,7 +107,7 @@ export const useUserStore = create<UserStore>((set) => {
     },
 
     // Добавление товара в корзину
-    addToCart(item) {
+    addToCart(product) {
       set((state) => {
         if (state.currentUser) {
           const userIndex = state.users.findIndex(
@@ -112,9 +115,24 @@ export const useUserStore = create<UserStore>((set) => {
           )
           if (userIndex !== -1) {
             const updatedUsers = [...state.users]
-            updatedUsers[userIndex].cart?.push(item)
-            updateLocalStorage(updatedUsers)
-            return { users: updatedUsers, currentUser: updatedUsers[userIndex] }
+            const userCart = updatedUsers[userIndex].cart || []
+
+            // Проверка, есть ли товар уже в корзине
+            const existingItemIndex = userCart.findIndex(item => item.id === product.id)
+            if (existingItemIndex !== -1) {
+              // Увеличиваем количество, если товар уже существует
+              userCart[existingItemIndex].quantity += product.quantity || 1
+            }
+            else {
+              // Добавляем новый товар с quantity: 1
+              userCart.push({ ...product, quantity: 1 })
+            }
+
+            const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
+            // Обновите localStorage для обоих
+            updateLocalStorage(updatedUsers, updatedCurrentUser)
+
+            return { users: updatedUsers, currentUser: updatedCurrentUser }
           }
         }
         return state

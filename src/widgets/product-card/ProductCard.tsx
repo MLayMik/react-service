@@ -1,5 +1,5 @@
+import { AddToCart } from '@/features/add-to-cart/AddToCart'
 import star from '@/shared/assets/starIcon.svg'
-import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
 
 interface Review {
   rating: number
@@ -8,16 +8,18 @@ interface Review {
 }
 
 interface PropsSlider {
-  name: string
-  description: string
-  price: number
-  image: string
-  price_with_discount: number | null
-  reviews?: (Review | undefined)[] | undefined
-  discount: boolean
+  product: {
+    name: string
+    description: string
+    price: number
+    image: string
+    price_with_discount: number | null
+    reviews?: (Review | undefined)[] | undefined
+    discount: boolean
+  }
 }
 
-export function ProductCard({ name, description, price, price_with_discount, image, reviews, discount }: PropsSlider) {
+export function ProductCard({ product }: PropsSlider) {
   return (
     <div
       className="
@@ -43,7 +45,7 @@ export function ProductCard({ name, description, price, price_with_discount, ima
 
               lg:max-h-[188px]
             "
-            src={image}
+            src={product.image}
             alt="product image"
           />
         </div>
@@ -54,7 +56,7 @@ export function ProductCard({ name, description, price, price_with_discount, ima
             lg:text-lg
           "
         >
-          { name }
+          { product.name }
         </h1>
         <div className="mb-2 flex flex-wrap items-center">
           <img
@@ -85,8 +87,8 @@ export function ProductCard({ name, description, price, price_with_discount, ima
           <p className="whitespace-nowrap text-[10px] lg:text-xs">
             <span className="font-medium leading-5 text-blue-600">4.8</span>
             {' '}
-            {reviews?.length
-              ? (reviews.length <= 4 ? `${reviews.length} відгука` : `${reviews.length} відгуків`)
+            {product.reviews?.length
+              ? (product.reviews.length <= 4 ? `${product.reviews.length} відгука` : `${product.reviews.length} відгуків`)
               : '0 відгуків'}
           </p>
         </div>
@@ -105,7 +107,7 @@ export function ProductCard({ name, description, price, price_with_discount, ima
             min-[400px]:max-w-[244px]
           "
         >
-          { description }
+          { product.description }
         </div>
       </div>
       <div
@@ -115,7 +117,7 @@ export function ProductCard({ name, description, price, price_with_discount, ima
           lg:flex-row lg:items-end
         "
       >
-        {discount
+        {product.discount
           ? (
               <div className="max-w-[122px]">
                 <div className="mb-1 flex gap-2">
@@ -125,13 +127,13 @@ export function ProductCard({ name, description, price, price_with_discount, ima
           opacity-50 lg:text-xs
         "
                   >
-                    {price}
+                    {product.price}
                     {' '}
                     ₴
                   </p>
                 </div>
                 <div className="whitespace-nowrap text-xl font-bold leading-none lg:text-2xl">
-                  {price_with_discount}
+                  {product.price_with_discount}
                   {' '}
                   ₴
                 </div>
@@ -139,15 +141,13 @@ export function ProductCard({ name, description, price, price_with_discount, ima
             )
           : (
               <div className="whitespace-nowrap text-xl font-bold leading-none lg:text-2xl">
-                {price}
+                {product.price}
                 {' '}
                 ₴
               </div>
             )}
 
-        <ButtonMain>
-          В кошик
-        </ButtonMain>
+        <AddToCart product={product} />
       </div>
     </div>
   )

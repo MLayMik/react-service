@@ -1,4 +1,13 @@
-export function CartItem() {
+interface CartItemProps {
+  name: string
+  image: string
+  code: number
+  discount: boolean
+  price: number
+  price_with_discount: number | null
+  quantity: number
+}
+export function CartItem({ name, image, code, discount, price, price_with_discount, quantity }: CartItemProps) {
   return (
     <div
       className="relative flex w-full flex-col gap-4 rounded-2xl border border-slate-300 bg-white px-3.5 py-3 md:flex-row md:items-center md:gap-0 2xl:pr-0"
@@ -9,45 +18,71 @@ export function CartItem() {
       />
       <div className="flex items-start max-w-[290px] w-full mr-5 gap-5">
         <div
-          className="inline-flex rounded-xl bg-indigo-100 md:flex md:items-center md:justify-center"
+          className="inline-flex rounded-xl  md:flex md:items-center md:justify-center max-w-[100px] max-h-[75px]"
         >
           <img
-            src="/src/assets/scaniaTank.png"
+            src={image}
             alt="result product image"
-            className="max-w-none"
+            className="h-full bg-indigo-200"
           />
         </div>
         <div className="flex flex-col gap-2">
           <h2 className="text-sm font-semibold leading-small text-gray-900 truncate">
-            Паливний бак Scania
+            {name}
           </h2>
-          <p className="text-sm leading-5 text-neutral-500">Код: 6422889</p>
+          <p className="text-sm leading-5 text-neutral-500">
+            Код:
+            {code}
+          </p>
         </div>
       </div>
       <div
         className="flex flex-wrap items-center justify-between min-[425px]:flex-nowrap"
       >
-        <div className="max-w-[102px] md:mr-[69px]">
-          <div className="mb-1 flex items-center gap-2">
-            <p
-              className="whitespace-nowrap text-[10px] font-bold leading-4 text-gray-400 line-through opacity-50"
-            >
-              2200 &#8372;
-            </p>
-            <div className="relative">
-              <img
-                src="/src/assets/discountBlue.svg"
-                className="max-w-none"
-              />
-              <p
-                className="absolute left-2 top-0.5 whitespace-nowrap text-[10px] font-bold text-white"
-              >
-                -200
-              </p>
-            </div>
-          </div>
-          <div className="text-xl font-semibold text-gray-900">2200 &#8372;</div>
-        </div>
+
+        {discount
+          ? (
+              <div className="w-[120px] md:mr-[69px]">
+                <div className="mb-1 flex items-center gap-2">
+                  <p
+                    className="whitespace-nowrap text-[10px] font-bold leading-4 text-gray-400 line-through opacity-50"
+                  >
+                    {price}
+                    {' '}
+                    &#8372;
+                  </p>
+                  <div className="relative">
+                    <img
+                      src="/src/assets/discountBlue.svg"
+                      className="max-w-none"
+                    />
+                    <p
+                      className="absolute left-2 top-0.5 whitespace-nowrap text-[10px] font-bold text-white"
+                    >
+                      {price_with_discount !== null ? `-${price - price_with_discount}` : price}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-xl font-semibold text-gray-900">
+                  {price_with_discount}
+                  {' '}
+                  &#8372;
+                </div>
+              </div>
+            )
+          : (
+              <div className="w-[120px] md:mr-[69px]">
+                <div className="mb-1 flex items-center gap-2">
+                  <div className="relative">
+                  </div>
+                </div>
+                <div className="text-xl font-semibold text-gray-900 ">
+                  {price}
+                  {' '}
+                  &#8372;
+                </div>
+              </div>
+            )}
         <div className="flex items-center gap-4 md:mr-[85px]">
           <button>
             <img
@@ -55,7 +90,7 @@ export function CartItem() {
               className="max-w-none"
             />
           </button>
-          <p className="text-sm font-semibold text-gray-900">1</p>
+          <p className="text-sm font-semibold text-gray-900">{quantity}</p>
           <button className="rounded bg-blue-500 p-[5px]">
             <img
               src="/src/assets/plusIcon.svg"
