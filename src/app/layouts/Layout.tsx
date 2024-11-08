@@ -11,6 +11,7 @@ import { Link, Outlet, useNavigate } from 'react-router-dom'
 export function Layout() {
   const { signOut } = useUserStore.getState()
   const navigate = useNavigate()
+
   const handleSubmit = () => {
     if (signOut) {
       signOut(() => navigate('/', { replace: true }))

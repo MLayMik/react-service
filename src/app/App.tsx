@@ -1,5 +1,6 @@
 import { Articles } from '@/pages/articles'
 import { CartPage } from '@/pages/cart'
+import { RegisterPage } from '@/pages/register'
 import { Reviews } from '@/pages/reviews'
 import { Route, Routes } from 'react-router-dom'
 import { RequireAuth } from '../entities/user/requireAuth/RequireAuth'
@@ -16,6 +17,7 @@ function App() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="catalog" element={<Catalog />} />
@@ -24,10 +26,7 @@ function App() {
         <Route path="reviews" element={<Reviews />} />
         <Route path="articles" element={<Articles />} />
         <Route path="cart" element={<CartPage />} />
-        <Route path="about-us" element={<AboutUs />}>
-          <Route />
-          <Route />
-        </Route>
+        <Route path="about-us" element={<AboutUs />}></Route>
         <Route
           path="profile/"
           element={(

@@ -1,32 +1,30 @@
+import type { UserType } from '@/entities/user/store/UserStore'
 import { useUserStore } from '@/entities/user/store/UserStore'
 
 import forestPhoto from '@/shared/assets/forestPhoto.png'
-
 import logo from '@/shared/assets/Logo.svg'
-import { ButtonMain } from '@/shared/ui/buttons/ButtonMain'
-
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
-
+import { ButtonMain } from '@/shared/ui/buttons'
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-export function LoginPage() {
+export function RegisterPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const fromPage = location.state?.from?.pathname || '/'
 
-  // const auth = useAuth()
-  const { signIn, users } = useUserStore.getState()
+  const { register } = useUserStore.getState()
 
   const handleSubmit = (event?: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault()
-    const email = event?.currentTarget.EmailInput.value
-    const password = event?.currentTarget.passwordInput.value
+    const newUser: UserType = {
+      email: event?.currentTarget.EmailInput.value,
+      password: event?.currentTarget.passwordInput.value,
+      cart: [],
+      isAuthenticated: true,
+    }
 
-    signIn(email, password, () => navigate(fromPage, { replace: true }))
-    // eslint-disable-next-line no-console
-    console.log(users)
+    register(newUser, () => navigate(fromPage, { replace: true }))
   }
-
   return (
     <form onSubmit={handleSubmit}>
       <div className="container xl:pr-20 2xl:pr-0 max-w-[1440px] mx-auto font-montserrat">
@@ -41,7 +39,7 @@ export function LoginPage() {
           className="mb-2 mt-28 flex flex-col items-center gap-12 lg:my-0 lg:flex-row lg:justify-between lg:gap-0"
         >
           <div className="w-full max-w-[370px]">
-            <h1 className="mb-6 text-2xl font-semibold text-gray-900">Вхід</h1>
+            <h1 className="mb-6 text-2xl font-semibold text-gray-900">Зарегеструватись</h1>
             <div className="mb-6 flex flex-col gap-4 text-slate-700">
               <div className="flex flex-col justify-start gap-1">
                 <label
@@ -75,20 +73,14 @@ export function LoginPage() {
               </div>
               <Link
                 className="ml-2 text-xs font-medium leading-[18px] text-blue-600 transition-colors duration-300 hover:text-blue-800"
-                to="/reset-password/"
+                to="/login"
               >
-                Забули пароль?
-              </Link>
-              <Link
-                className="ml-2 text-xs font-medium leading-[18px] text-blue-600 transition-colors duration-300 hover:text-blue-800"
-                to="/register"
-              >
-                Зарегеструватись
+                Увійти
               </Link>
             </div>
             <div className="flex flex-col items-start gap-5">
               <ButtonMain type="submit">
-                Увійти
+                Зарегеструватись
               </ButtonMain>
             </div>
           </div>
