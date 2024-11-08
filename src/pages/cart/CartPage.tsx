@@ -40,7 +40,6 @@ export function CartPage() {
           <CartItem />
           <CartItem />
           <CartItem />
-          {/* {{>CartItem}} {{>CartItem}} {{>CartItem}} */}
         </div>
         <div
           className="card row-end-1 flex w-full flex-col gap-6 rounded-xl border border-gray-100 bg-white px-5 py-6 lg:max-w-[270px]"
