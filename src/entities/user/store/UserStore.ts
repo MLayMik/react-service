@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 
 export interface CartItem {
+  code: number
   id: string
   name: string
   quantity: number
@@ -22,6 +23,7 @@ interface UserStore {
   signOut: (cb?: () => void) => void
   addToCart: (item: CartItem) => void
   clearCart: () => void
+  incrementCountCartProduct: (code: number | undefined) => void
 }
 
 export const useUserStore = create<UserStore>((set) => {
@@ -118,10 +120,10 @@ export const useUserStore = create<UserStore>((set) => {
             const userCart = updatedUsers[userIndex].cart || []
 
             // Проверка, есть ли товар уже в корзине
-            const existingItemIndex = userCart.findIndex(item => item.id === product.id)
+            const existingItemIndex = userCart.findIndex(item => item.code === product.code)
             if (existingItemIndex !== -1) {
               // Увеличиваем количество, если товар уже существует
-              userCart[existingItemIndex].quantity += product.quantity || 1
+              userCart[existingItemIndex].quantity += 1 // Увеличиваем на 1
             }
             else {
               // Добавляем новый товар с quantity: 1
@@ -139,6 +141,42 @@ export const useUserStore = create<UserStore>((set) => {
       })
     },
 
+    incrementCountCartProduct(code) {
+      set((state) => {
+          const userIndex = state.users.findIndex(
+            user => user.email === state.currentUser?.email,
+          )
+          if (userIndex !== -1) {
+            const updatedUsers = [...state.users]
+            const userCart = updatedUsers[userIndex].cart || []
+
+            const itemIndex = userCart.findIndex(item => item.code === code)
+            if (itemIndex !== -1) {
+              userCart[itemIndex].quantity += 1
+            }
+
+            const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
+            updateLocalStorage(updatedUsers, updatedCurrentUser)
+
+            return { users: updatedUsers, currentUser: updatedCurrentUser }
+          }
+        return state
+      })
+    },
+
+    decrementCountCartProduct(code) {
+      set((state) => {
+        if (state.currentUser) {
+          const userIndex = state.users.findIndex(
+            user => user.email === state.currentUser?.email,
+          )
+          if (userIndex !== -1) {
+
+          }
+        }
+        return state
+      })
+    },
     // Очистка корзины
     clearCart() {
       set((state) => {

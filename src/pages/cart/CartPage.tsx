@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 export function CartPage() {
   const { currentUser } = useUserStore.getState()
+  // console.log(currentUser)
+
   return (
     <div className="container mb-24">
       <div
