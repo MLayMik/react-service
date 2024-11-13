@@ -1,17 +1,19 @@
 import { create } from 'zustand'
 
-export interface CartItem {
-  code: number
-  id: string
+export interface CartItemProps {
   name: string
-  quantity: number
+  image?: string
+  code?: number
+  discount?: boolean
   price: number
+  price_with_discount?: number
+  quantity: number
 }
 
 export interface UserType {
   email: string
   password: string
-  cart?: CartItem[]
+  cart?: CartItemProps[]
   isAuthenticated: boolean
 }
 
@@ -21,7 +23,7 @@ interface UserStore {
   register: (newUser: UserType, cb?: () => void) => void
   signIn: (email: string, password: string, cb?: () => void) => void
   signOut: (cb?: () => void) => void
-  addToCart: (item: CartItem) => void
+  addToCart: (item: CartItemProps) => void
   clearCart: () => void
   incrementCountCartProduct: (code: number | undefined) => void
   decrementCountCartProduct: (code: number | undefined) => void

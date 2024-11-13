@@ -1,4 +1,5 @@
 import { useUserStore } from '@/entities/user/store/UserStore'
+import { ButtonMain } from '@/shared/ui/buttons'
 import { CartItem } from '@/widgets/cart-item'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
@@ -6,6 +7,19 @@ import { Link } from 'react-router-dom'
 export function CartPage() {
   const { currentUser } = useUserStore.getState()
   // console.log(currentUser)
+
+  const pricesSum = currentUser?.cart?.reduce((acc, cartItem) => {
+    return acc + cartItem.price * cartItem.quantity
+  }, 0)
+  const discountSum = currentUser?.cart?.reduce((acc, cartItem) => {
+    // Суммируем только товары со скидкой
+    if (cartItem.price_with_discount) {
+      return acc + (cartItem.price - cartItem.price_with_discount) * cartItem.quantity
+    }
+    else {
+      return acc
+    }
+  }, 0)
 
   return (
     <div className="container mb-24">
@@ -51,12 +65,24 @@ export function CartPage() {
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
-                  <p className="text-neutral-400">Товари (3)</p>
-                  <p className="font-medium text-zinc-600">75 092 &#8372;</p>
+                  <p className="text-neutral-400">
+                    Товари (
+                    {currentUser?.cart?.length}
+                    )
+                  </p>
+                  <p className="font-medium text-zinc-600">
+                    {pricesSum}
+                    {' '}
+                    &#8372;
+                  </p>
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-neutral-400">Знижка</p>
-                  <p className="font-medium text-zinc-600">5 092 &#8372;</p>
+                  <p className="font-medium text-zinc-600">
+                    {discountSum}
+                    {' '}
+                    &#8372;
+                  </p>
                 </div>
               </div>
               <hr />
@@ -64,17 +90,19 @@ export function CartPage() {
                 className="flex items-center justify-between font-semibold text-gray-900"
               >
                 <p className="text-lg">Сума</p>
-                <p className="text-xl">10 095 &#8372;</p>
+                <p className="text-xl">
+                  { (pricesSum ?? 0) - (discountSum ?? 0) }
+                  {' '}
+                  &#8372;
+                </p>
               </div>
             </div>
           </div>
-          <a href="/order/">
-            <button
-              className="self-start whitespace-nowrap rounded-large bg-blue-600 px-[27px] py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-blue-700 hover:text-zinc-100"
-            >
+          <Link to="/profile/orders/" className="text-sm">
+            <ButtonMain>
               Оформити замовлення
-            </button>
-          </a>
+            </ButtonMain>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,16 +1,8 @@
+import type { CartItemProps } from '@/entities/user/store/UserStore'
 import { useUserStore } from '@/entities/user/store/UserStore'
-import { useEffect, useState } from 'react'
-// import plusIcon from '@/shared/'
 
-interface CartItemProps {
-  name: string
-  image?: string
-  code?: number
-  discount?: boolean
-  price: number
-  price_with_discount?: number
-  quantity?: number
-}
+import { useEffect, useState } from 'react'
+
 export function CartItem({ name, image, code, discount, price, price_with_discount, quantity }: CartItemProps) {
   const [currentQuantity, setCurrentQuantity] = useState<number>(quantity || 0)
 
@@ -134,7 +126,11 @@ export function CartItem({ name, image, code, discount, price, price_with_discou
           </button>
         </div>
         <div className="whitespace-nowrap text-xl font-semibold text-gray-900">
-          2200 &#8372;
+          {discount && price_with_discount
+            ? price_with_discount * currentQuantity // Если скидка есть, умножаем на quantity
+            : price * currentQuantity}
+          {' '}
+          &#8372;
         </div>
       </div>
     </div>
