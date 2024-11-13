@@ -20,20 +20,23 @@ export function CartItem({ name, image, code, discount, price, price_with_discou
       if (updatedItem) {
         setCurrentQuantity(updatedItem.quantity) // Обновляем локальное состояние, когда меняется корзина
       }
+      else {
+        setCurrentQuantity(0)
+      }
     })
     return () => unsubscribe()
   }, [code])
 
   const handleIncrement = () => {
-    useUserStore.getState().incrementCountCartProduct(code) // Увеличиваем количество через Zustand
+    useUserStore.getState().incrementCountCartProduct(code)
+  }
+  const handleDecrement = () => {
+    useUserStore.getState().decrementCountCartProduct(code)
   }
 
-  // Функция для уменьшения количества
-  // const handleDecrement = () => {
-  //   if (currentQuantity > 1) {
-  //     useUserStore.getState().decrementCountCartProduct(code) // Уменьшаем количество через Zustand
-  //   }
-  // }
+  if (currentQuantity === 0) {
+    return null
+  }
 
   return (
     <div
@@ -111,7 +114,7 @@ export function CartItem({ name, image, code, discount, price, price_with_discou
               </div>
             )}
         <div className="flex items-center gap-4 md:mr-[85px]">
-          <button>
+          <button onClick={handleDecrement}>
             <img
               src="/src/assets/minusIcon.svg"
               className="max-w-none"
