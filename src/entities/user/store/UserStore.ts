@@ -25,6 +25,7 @@ interface UserStore {
   clearCart: () => void
   incrementCountCartProduct: (code: number | undefined) => void
   decrementCountCartProduct: (code: number | undefined) => void
+  deleteCartItem: (code: number | undefined) => void
 }
 
 export const useUserStore = create<UserStore>((set) => {
@@ -182,6 +183,28 @@ export const useUserStore = create<UserStore>((set) => {
             else {
               userCart.splice(itemIndex, 1)
             }
+          }
+
+          const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
+          updateLocalStorage(updatedUsers, updatedCurrentUser)
+
+          return { users: updatedUsers, currentUser: updatedCurrentUser }
+        }
+        return state
+      })
+    },
+    deleteCartItem(code) {
+      set((state) => {
+        const userIndex = state.users.findIndex(
+          user => user.email === state.currentUser?.email,
+        )
+        if (userIndex !== -1) {
+          const updatedUsers = [...state.users]
+          const userCart = updatedUsers[userIndex].cart || []
+
+          const itemIndex = userCart.findIndex(item => item.code === code)
+          if (itemIndex !== -1) {
+            userCart.splice(itemIndex, 1)
           }
 
           const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }

@@ -41,7 +41,7 @@ export function CartPage() {
             <p className="px-6 py-4">Кількість</p>
             <p className="px-6 py-4">Сума</p>
           </div>
-          {currentUser?.cart?.map(cartItem => <CartItem key={cartItem.id} {...cartItem} />)}
+          {currentUser?.cart?.map(cartItem => <CartItem key={cartItem.code} {...cartItem} />)}
         </div>
         <div
           className="card row-end-1 flex w-full flex-col gap-6 rounded-xl border border-gray-100 bg-white px-5 py-6 lg:max-w-[270px]"

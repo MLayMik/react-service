@@ -33,6 +33,9 @@ export function CartItem({ name, image, code, discount, price, price_with_discou
   const handleDecrement = () => {
     useUserStore.getState().decrementCountCartProduct(code)
   }
+  const handleDeleteItem = () => {
+    useUserStore.getState().deleteCartItem(code)
+  }
 
   if (currentQuantity === 0) {
     return null
@@ -42,10 +45,12 @@ export function CartItem({ name, image, code, discount, price, price_with_discou
     <div
       className="relative flex w-full flex-col gap-4 rounded-2xl border border-slate-300 bg-white px-3.5 py-3 md:flex-row md:items-center md:gap-0 2xl:pr-0"
     >
-      <img
-        src="/src/assets/xMarkIcon.svg"
-        className="absolute right-3 top-3 cursor-pointer"
-      />
+      <button onClick={handleDeleteItem}>
+        <img
+          src="/src/assets/xMarkIcon.svg"
+          className="absolute right-3 top-3 cursor-pointer"
+        />
+      </button>
       <div className="flex items-start max-w-[290px] w-full mr-5 gap-5">
         <div
           className="inline-flex rounded-xl  md:flex md:items-center md:justify-center max-w-[100px] max-h-[75px]"
