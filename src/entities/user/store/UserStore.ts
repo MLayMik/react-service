@@ -24,6 +24,7 @@ interface UserStore {
   addToCart: (item: CartItem) => void
   clearCart: () => void
   incrementCountCartProduct: (code: number | undefined) => void
+  decrementCountCartProduct: (code: number | undefined) => void
 }
 
 export const useUserStore = create<UserStore>((set) => {
@@ -143,36 +144,50 @@ export const useUserStore = create<UserStore>((set) => {
 
     incrementCountCartProduct(code) {
       set((state) => {
-          const userIndex = state.users.findIndex(
-            user => user.email === state.currentUser?.email,
-          )
-          if (userIndex !== -1) {
-            const updatedUsers = [...state.users]
-            const userCart = updatedUsers[userIndex].cart || []
+        const userIndex = state.users.findIndex(
+          user => user.email === state.currentUser?.email,
+        )
+        if (userIndex !== -1) {
+          const updatedUsers = [...state.users]
+          const userCart = updatedUsers[userIndex].cart || []
 
-            const itemIndex = userCart.findIndex(item => item.code === code)
-            if (itemIndex !== -1) {
-              userCart[itemIndex].quantity += 1
-            }
-
-            const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
-            updateLocalStorage(updatedUsers, updatedCurrentUser)
-
-            return { users: updatedUsers, currentUser: updatedCurrentUser }
+          const itemIndex = userCart.findIndex(item => item.code === code)
+          if (itemIndex !== -1) {
+            userCart[itemIndex].quantity += 1
           }
+
+          const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
+          updateLocalStorage(updatedUsers, updatedCurrentUser)
+
+          return { users: updatedUsers, currentUser: updatedCurrentUser }
+        }
         return state
       })
     },
 
     decrementCountCartProduct(code) {
       set((state) => {
-        if (state.currentUser) {
-          const userIndex = state.users.findIndex(
-            user => user.email === state.currentUser?.email,
-          )
-          if (userIndex !== -1) {
+        const userIndex = state.users.findIndex(
+          user => user.email === state.currentUser?.email,
+        )
+        if (userIndex !== -1) {
+          const updatedUsers = [...state.users]
+          const userCart = updatedUsers[userIndex].cart || []
 
+          const itemIndex = userCart.findIndex(item => item.code === code)
+          if (itemIndex !== -1) {
+            if (userCart[itemIndex].quantity > 1) {
+              userCart[itemIndex].quantity -= 1
+            }
+            else {
+              userCart.splice(itemIndex, 1)
+            }
           }
+
+          const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
+          updateLocalStorage(updatedUsers, updatedCurrentUser)
+
+          return { users: updatedUsers, currentUser: updatedCurrentUser }
         }
         return state
       })
