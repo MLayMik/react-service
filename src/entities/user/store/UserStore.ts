@@ -20,6 +20,10 @@ export interface UserType {
 interface UserStore {
   users: UserType[]
   currentUser: UserType | null
+  pricesSum: number | 0
+  discountSum: number | 0
+  totalSum: number | 0
+
   register: (newUser: UserType, cb?: () => void) => void
   signIn: (email: string, password: string, cb?: () => void) => void
   signOut: (cb?: () => void) => void
@@ -38,6 +42,19 @@ export const useUserStore = create<UserStore>((set) => {
   const storedCurrentUser = localStorage.getItem('currentUser')
   const currentUser: UserType | null = storedCurrentUser ? JSON.parse(storedCurrentUser) : null
 
+  const calculatePricesSum = (cart: CartItemProps[]) => {
+    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+  }
+
+  const calculateDiscountSum = (cart: CartItemProps[]) => {
+    return cart.reduce((acc, item) => {
+      if (item.price_with_discount) {
+        return acc + (item.price - item.price_with_discount) * item.quantity
+      }
+      return acc
+    }, 0)
+  }
+
   const updateLocalStorage = (users: UserType[], currentUser?: UserType | null) => {
     localStorage.setItem('users', JSON.stringify(users))
     if (currentUser) {
@@ -49,6 +66,12 @@ export const useUserStore = create<UserStore>((set) => {
   return {
     users: initialUsers,
     currentUser, // Восстанавливаем текущего пользователя из localStorage
+
+    pricesSum: currentUser ? calculatePricesSum(currentUser.cart || []) : 0,
+    discountSum: currentUser ? calculateDiscountSum(currentUser.cart || []) : 0,
+    totalSum: currentUser
+      ? calculatePricesSum(currentUser.cart || []) - calculateDiscountSum(currentUser.cart || [])
+      : 0,
 
     // Регистрация нового пользователя
     register(newUser, cb) {
@@ -138,7 +161,17 @@ export const useUserStore = create<UserStore>((set) => {
             // Обновите localStorage для обоих
             updateLocalStorage(updatedUsers, updatedCurrentUser)
 
-            return { users: updatedUsers, currentUser: updatedCurrentUser }
+            const newPricesSum = calculatePricesSum(userCart)
+            const newDiscountSum = calculateDiscountSum(userCart)
+            const newTotalSum = newPricesSum - newDiscountSum
+
+            return {
+              users: updatedUsers,
+              currentUser: updatedCurrentUser,
+              pricesSum: newPricesSum,
+              discountSum: newDiscountSum,
+              totalSum: newTotalSum,
+            }
           }
         }
         return state
@@ -162,7 +195,17 @@ export const useUserStore = create<UserStore>((set) => {
           const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
           updateLocalStorage(updatedUsers, updatedCurrentUser)
 
-          return { users: updatedUsers, currentUser: updatedCurrentUser }
+          const newPricesSum = calculatePricesSum(userCart)
+          const newDiscountSum = calculateDiscountSum(userCart)
+          const newTotalSum = newPricesSum - newDiscountSum
+
+          return {
+            users: updatedUsers,
+            currentUser: updatedCurrentUser,
+            pricesSum: newPricesSum,
+            discountSum: newDiscountSum,
+            totalSum: newTotalSum,
+          }
         }
         return state
       })
@@ -190,11 +233,22 @@ export const useUserStore = create<UserStore>((set) => {
           const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
           updateLocalStorage(updatedUsers, updatedCurrentUser)
 
-          return { users: updatedUsers, currentUser: updatedCurrentUser }
+          const newPricesSum = calculatePricesSum(userCart)
+          const newDiscountSum = calculateDiscountSum(userCart)
+          const newTotalSum = newPricesSum - newDiscountSum
+
+          return {
+            users: updatedUsers,
+            currentUser: updatedCurrentUser,
+            pricesSum: newPricesSum,
+            discountSum: newDiscountSum,
+            totalSum: newTotalSum,
+          }
         }
         return state
       })
     },
+
     deleteCartItem(code) {
       set((state) => {
         const userIndex = state.users.findIndex(
@@ -212,7 +266,17 @@ export const useUserStore = create<UserStore>((set) => {
           const updatedCurrentUser = { ...updatedUsers[userIndex], cart: userCart }
           updateLocalStorage(updatedUsers, updatedCurrentUser)
 
-          return { users: updatedUsers, currentUser: updatedCurrentUser }
+          const newPricesSum = calculatePricesSum(userCart)
+          const newDiscountSum = calculateDiscountSum(userCart)
+          const newTotalSum = newPricesSum - newDiscountSum
+
+          return {
+            users: updatedUsers,
+            currentUser: updatedCurrentUser,
+            pricesSum: newPricesSum,
+            discountSum: newDiscountSum,
+            totalSum: newTotalSum,
+          }
         }
         return state
       })

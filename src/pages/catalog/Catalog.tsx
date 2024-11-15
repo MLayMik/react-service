@@ -69,7 +69,7 @@ export function Catalog() {
               className="mb-10 grid gap-5 min-[400px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3"
             >
               {/* <Cart /> */}
-              {products.map(product => <ProductCard key={product.code} {...product} />)}
+              {products.map(product => <ProductCard key={product.code} product={product} />)}
               {/* {{>ProductCard}} {{>ProductCard}} {{>ProductCardLiked}}
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCard}}
               {{>ProductCardLiked}} {{>ProductCard}} {{>ProductCard}}

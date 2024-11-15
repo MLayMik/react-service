@@ -5,22 +5,44 @@ import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom'
 
 export function CartPage() {
-  const { currentUser } = useUserStore.getState()
+  const { currentUser, totalSum, pricesSum, discountSum } = useUserStore()
   // console.log(currentUser)
 
-  const pricesSum = currentUser?.cart?.reduce((acc, cartItem) => {
-    return acc + cartItem.price * cartItem.quantity
-  }, 0)
-  const discountSum = currentUser?.cart?.reduce((acc, cartItem) => {
-    // Суммируем только товары со скидкой
-    if (cartItem.price_with_discount) {
-      return acc + (cartItem.price - cartItem.price_with_discount) * cartItem.quantity
-    }
-    else {
-      return acc
-    }
-  }, 0)
-
+  if (!currentUser?.cart) {
+    return (
+      <div className="container mb-24">
+        <div
+          className="mb-8 flex items-center gap-1 text-sm text-gray-900 transition-colors duration-300 hover:text-gray-950 md:mb-10"
+        >
+          <Link
+            to="/"
+            className="opacity-50"
+          >
+            Головна
+          </Link>
+          <ChevronRightIcon className="size-3" />
+          <p className="cursor-pointer">Кошик</p>
+        </div>
+        <div className="mb-8 flex justify-between">
+          <div className=" flex items-center gap-3">
+            <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
+              🛒
+            </div>
+            <h1
+              className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
+            >
+              Кошик порожній!
+            </h1>
+          </div>
+          <Link to="/catalog">
+            <ButtonMain>
+              Продовжити
+            </ButtonMain>
+          </Link>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className="container mb-24">
       <div
@@ -91,7 +113,7 @@ export function CartPage() {
               >
                 <p className="text-lg">Сума</p>
                 <p className="text-xl">
-                  { (pricesSum ?? 0) - (discountSum ?? 0) }
+                  {totalSum}
                   {' '}
                   &#8372;
                 </p>

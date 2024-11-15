@@ -1,23 +1,10 @@
 import type { CartItemProps } from '@/entities/user/store/UserStore'
 import { useUserStore } from '@/entities/user/store/UserStore'
 
-import { useEffect, useState } from 'react'
-
 export function CartItem({ name, image, code, discount, price, price_with_discount, quantity }: CartItemProps) {
-  const [currentQuantity, setCurrentQuantity] = useState<number>(quantity || 0)
-
-  useEffect(() => {
-    const unsubscribe = useUserStore.subscribe((state) => {
-      const updatedItem = state.currentUser?.cart?.find(item => item.code === code)
-      if (updatedItem) {
-        setCurrentQuantity(updatedItem.quantity) // Обновляем локальное состояние, когда меняется корзина
-      }
-      else {
-        setCurrentQuantity(0)
-      }
-    })
-    return () => unsubscribe()
-  }, [code])
+  // const { currentUser } = useUserStore()
+  // const currentItem = currentUser?.cart?.find(item => item.code === code)
+  // const currentQuantity = currentItem ? currentItem.quantity : 0
 
   const handleIncrement = () => {
     useUserStore.getState().incrementCountCartProduct(code)
@@ -29,7 +16,7 @@ export function CartItem({ name, image, code, discount, price, price_with_discou
     useUserStore.getState().deleteCartItem(code)
   }
 
-  if (currentQuantity === 0) {
+  if (quantity === 0) {
     return null
   }
 
@@ -117,7 +104,7 @@ export function CartItem({ name, image, code, discount, price, price_with_discou
               className="max-w-none"
             />
           </button>
-          <p className="text-sm font-semibold text-gray-900">{currentQuantity}</p>
+          <p className="text-sm font-semibold text-gray-900">{quantity}</p>
           <button className="rounded bg-blue-500 p-[5px]" onClick={handleIncrement}>
             <img
               src="/src/assets/plusIcon.svg"
@@ -127,8 +114,8 @@ export function CartItem({ name, image, code, discount, price, price_with_discou
         </div>
         <div className="whitespace-nowrap text-xl font-semibold text-gray-900">
           {discount && price_with_discount
-            ? price_with_discount * currentQuantity // Если скидка есть, умножаем на quantity
-            : price * currentQuantity}
+            ? price_with_discount * quantity // Если скидка есть, умножаем на quantity
+            : price * quantity}
           {' '}
           &#8372;
         </div>

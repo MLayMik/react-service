@@ -5,10 +5,8 @@ import { NavBar } from '@/shared/ui/nav-bar'
 import { HeartIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 
-// import { useAuth } from '../../components/hook/useAuth'
-
 export function Layout() {
-  const { signOut, currentUser } = useUserStore.getState()
+  const { signOut, currentUser, totalSum } = useUserStore()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -55,12 +53,16 @@ export function Layout() {
                       </button>
                     </div>
                   </div>
-                  <Link to='profile/favorite' className="size-6">
+                  <Link to="profile/favorite" className="size-6">
                     <HeartIcon />
                   </Link>
                   <Link to="cart" className=" flex items-center gap-2">
                     <ShoppingCartIcon className="size-5" />
-                    <p className="whitespace-nowrap">₴10 000</p>
+                    <p className="whitespace-nowrap">
+                      ₴
+                      {' '}
+                      {totalSum}
+                    </p>
                   </Link>
                 </>
               )
