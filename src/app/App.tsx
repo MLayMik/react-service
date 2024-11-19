@@ -1,8 +1,9 @@
-import { Articles } from '@/pages/articles'
+import { Article, Articles } from '@/pages/articles'
 import { CartPage } from '@/pages/cart'
 import { RegisterPage } from '@/pages/register'
 import { Reviews } from '@/pages/reviews'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { RequireAuth } from '../entities/user/requireAuth/RequireAuth'
 import { AboutUs } from '../pages/about-us'
 import { Catalog } from '../pages/catalog'
@@ -14,6 +15,12 @@ import { Services } from '../pages/services'
 import { Layout } from './layouts'
 
 function App() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
@@ -24,7 +31,10 @@ function App() {
         <Route path="services" element={<Services />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="reviews" element={<Reviews />} />
-        <Route path="articles" element={<Articles />} />
+        <Route path="articles">
+          <Route index element={<Articles />} />
+          <Route path=":id" element={<Article />} />
+        </Route>
         <Route path="cart" element={<CartPage />} />
         <Route path="about-us" element={<AboutUs />}></Route>
         <Route

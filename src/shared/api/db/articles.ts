@@ -193,17 +193,6 @@ const articles: z.infer<typeof BaseArticleSchema>[] = [
   },
 ]
 
-// function generateArticles(
-//   articlesArray: z.infer<typeof BaseArticleSchema>[],
-// ): z.infer<typeof ArticleSchema>[] {
-//   return articlesArray.map(article => ({
-//     ...article,
-//     similar_articles: articles
-//       .filter(a => a.id !== article.id)
-//       .slice(0, 5),
-//   }))
-// }
-
 function shuffleArray<T>(array: T[]): T[] {
   return array
     .map(value => ({ value, sort: Math.random() }))

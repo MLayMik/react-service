@@ -1,17 +1,22 @@
+import { ArticleCard } from '@/entities/article-card'
+import articles from '@/shared/api/db/articles'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom'
+
 export function Articles() {
   return (
     <div className="container mb-24 lg:mb-[120px] font-montserrat">
       <div
         className="mb-9 flex items-center gap-1 text-xs text-gray-900 transition-colors duration-300 hover:text-gray-950 md:mb-10"
       >
-        <a
+        <Link
           className="opacity-50"
-          href="/"
+          to="/"
         >
           Головна
-        </a>
-        <img src="/src/assets/ChevronRightSmall.svg" />
-        <p className="cursor-pointer">Блог</p>
+        </Link>
+        <ChevronRightIcon className="size-4" />
+        <p className="cursor-pointer">Статті</p>
       </div>
       <div className="mb-9 flex items-center gap-3 md:mb-10">
         <div className="paragraphIcon rounded-full bg-white p-2">
@@ -23,22 +28,16 @@ export function Articles() {
         <h1
           className="ml-3 mr-4 font-jakarta text-big font-bold leading-extra-height"
         >
-          Блог
+          Статті
         </h1>
       </div>
       <div
         className="mb-10 grid gap-5 min-[400px]:grid-cols-2 sm:grid-cols-3 md:gap-y-12"
       >
-
-        {/* {{>ArticleCard}} {{>ArticleCard}} {{>ArticleCard}} {{>ArticleCard}} */}
-        {/* {{>ArticleCard}} {{>ArticleCard}} {{>ArticleCard}} {{>ArticleCard}} */}
-        {/* {{>ArticleCard}} {{>ArticleCard}} {{>ArticleCard}} {{>ArticleCard}} */}
+        {articles.map(article => <ArticleCard key={article.id} {...article} />)}
       </div>
       <div className="flex items-center justify-center gap-2">
-        <img
-          src="/src/assets/ChevronLeftLight.svg"
-          className="cursor-pointer"
-        />
+        <ChevronLeftIcon className="size-5" />
         <a
           className="flex h-6 w-6 cursor-pointer items-center justify-center rounded border border-slate-300 text-sm font-medium leading-5 text-blue-600"
         >
@@ -64,10 +63,7 @@ export function Articles() {
         >
           36
         </a>
-        <img
-          src="/src/assets/ChevronRightLight.svg"
-          className="cursor-pointer"
-        />
+        <ChevronRightIcon className="size-5" />
       </div>
     </div>
   )

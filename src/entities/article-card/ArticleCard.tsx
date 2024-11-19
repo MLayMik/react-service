@@ -6,9 +6,10 @@ interface ArticleCardTypes {
   name: string
   date: string
   description: string
+  id: number
 }
 
-export function ArticleCard({ preview_image, name, date, description }: ArticleCardTypes) {
+export function ArticleCard({ preview_image, name, date, description, id }: ArticleCardTypes) {
   // console.log(articles)
   return (
     <div className="flex h-full w-full flex-col gap-3 md:gap-7">
@@ -25,7 +26,7 @@ export function ArticleCard({ preview_image, name, date, description }: ArticleC
           </h1>
           <Link
             className="pt-2"
-            to=""
+            to={`/articles/${id}`}
           >
             <ArrowUpRightIcon className="size-5" />
           </Link>
