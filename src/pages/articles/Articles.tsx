@@ -1,9 +1,25 @@
 import { ArticleCard } from '@/entities/article-card'
 import articles from '@/shared/api/db/articles'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import { Link } from 'react-router-dom'
+import { Pagination } from '@/shared/ui/pagination'
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
+import { useMemo } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 
 export function Articles() {
+  const [searchParams] = useSearchParams()
+  const selectedPage = Number(searchParams.get('page') || 1)
+  const itemsPerPage = 9
+
+  const currentPageProducts = useMemo(() => {
+    const startIndex = (selectedPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+
+    if (articles.length)
+      return articles.slice(startIndex, endIndex)
+
+    return []
+  }, [selectedPage])
+
   return (
     <div className="container mb-24 lg:mb-[120px] font-montserrat">
       <div
@@ -16,7 +32,7 @@ export function Articles() {
           Головна
         </Link>
         <ChevronRightIcon className="size-4" />
-        <p className="cursor-pointer">Статті</p>
+        <Link to="/articles">Статті</Link>
       </div>
       <div className="mb-9 flex items-center gap-3 md:mb-10">
         <div className="paragraphIcon rounded-full bg-white p-2">
@@ -34,37 +50,9 @@ export function Articles() {
       <div
         className="mb-10 grid gap-5 min-[400px]:grid-cols-2 sm:grid-cols-3 md:gap-y-12"
       >
-        {articles.map(article => <ArticleCard key={article.id} {...article} />)}
+        {currentPageProducts.map(article => <ArticleCard key={article.id} {...article} />)}
       </div>
-      <div className="flex items-center justify-center gap-2">
-        <ChevronLeftIcon className="size-5" />
-        <a
-          className="flex h-6 w-6 cursor-pointer items-center justify-center rounded border border-slate-300 text-sm font-medium leading-5 text-blue-600"
-        >
-          1
-        </a>
-        <a
-          className="flex h-6 w-6 cursor-pointer items-center justify-center rounded text-sm font-medium leading-5 text-slate-700"
-        >
-          2
-        </a>
-        <a
-          className="flex h-6 w-6 cursor-pointer items-center justify-center rounded text-sm font-medium leading-5 text-slate-700"
-        >
-          3
-        </a>
-        <a
-          className="flex h-6 w-6 cursor-pointer items-center justify-center rounded text-sm font-medium leading-5 text-slate-700"
-        >
-          ...
-        </a>
-        <a
-          className="flex h-6 w-6 cursor-pointer items-center justify-center rounded text-sm font-medium leading-5 text-slate-700"
-        >
-          36
-        </a>
-        <ChevronRightIcon className="size-5" />
-      </div>
+      <Pagination totalItems={articles.length} itemsPerPage={itemsPerPage} />
     </div>
   )
 }
