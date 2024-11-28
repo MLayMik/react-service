@@ -1,18 +1,22 @@
 import { cn } from '@/shared/lib'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 export interface Props {
-  selectedPage: number
-  length: number
+  totalItems: number
   itemsPerPage?: number
 }
-export function Pagination({ itemsPerPage = 18, length, selectedPage }: Props) {
-  const totalPages = useMemo(() => {
-    return Math.ceil(length / itemsPerPage)
-  }, [itemsPerPage, length])
+export function Pagination({ itemsPerPage = 18, totalItems }: Props) {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const selectedPage = Number(searchParams.get('page') || 1)
 
-  const changePage = (params) => {
+  const totalPages = useMemo(() => Math.ceil(totalItems / itemsPerPage), [totalItems, itemsPerPage])
+
+  const changePage = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setSearchParams({ page: String(page) })
+    }
   }
 
   return (

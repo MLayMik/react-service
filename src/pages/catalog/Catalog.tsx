@@ -2,23 +2,26 @@ import { FilterForm } from '@/features/filter-form'
 import products from '@/shared/api/db/products'
 import { Pagination } from '@/shared/ui/pagination/Pagination'
 import { ProductCard } from '@/widgets/product-card'
-import { AdjustmentsHorizontalIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { AdjustmentsHorizontalIcon, ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { useMemo } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 // import Cart from '../../widgets/product-card/ProductCard'
 
 export function Catalog() {
-  const [selectedPage, setSelectedPage] = useState()
+  const [searchParams] = useSearchParams()
+  const selectedPage = Number(searchParams.get('page') || 1)
+  const itemsPerPage = 12
 
   const currentPageProducts = useMemo(() => {
-    const startIndex = (selectedPage - 1) * 18
-    const endIndex = startIndex + 18
+    const startIndex = (selectedPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
 
     if (products.length)
       return products.slice(startIndex, endIndex)
 
     return []
-  }, [])
+  }, [selectedPage])
+
   return (
     <div
       className="container mb-24 px-5 max-[425px]:px-3 lg:mb-32 xl:px-24 min-[1400px]:px-[150px]"
@@ -68,42 +71,15 @@ export function Catalog() {
           <div
             className="mb-10 grid gap-5 min-[400px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3"
           >
-            {products.map(product => <ProductCard key={product.code} product={product} />)}
+            {currentPageProducts.map(product => (
+              <ProductCard key={product.code} product={product} />
+            ))}
+            {/* {products.map(product => <ProductCard key={product.code} product={product} />)} */}
 
-          </div>
-
-          <div className="flex items-center justify-center gap-2">
-            <ChevronLeftIcon className="size-5 " />
-            <a
-              className="flex h-6 w-6 cursor-pointer items-center justify-center rounded border border-slate-300 text-sm font-medium leading-5 text-blue-600"
-            >
-              1
-            </a>
-            <a
-              className="flex h-6 w-6 cursor-pointer items-center justify-center rounded text-sm font-medium leading-5 text-slate-700"
-            >
-              2
-            </a>
-            <a
-              className="flex h-6 w-6 cursor-pointer items-center justify-center rounded text-sm font-medium leading-5 text-slate-700"
-            >
-              3
-            </a>
-            <a
-              className="flex h-6 w-6 cursor-pointer items-center justify-center rounded text-sm font-medium leading-5 text-slate-700"
-            >
-              ...
-            </a>
-            <a
-              className="flex h-6 w-6 cursor-pointer items-center justify-center rounded text-sm font-medium leading-5 text-slate-700"
-            >
-              36
-            </a>
-            <ChevronRightIcon className="size-5" />
           </div>
         </div>
       </div>
-      <Pagination selectedPage={0} length={0} />
+      <Pagination totalItems={products.length} itemsPerPage={itemsPerPage} />
     </div>
   )
 }
