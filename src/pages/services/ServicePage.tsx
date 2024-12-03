@@ -2,7 +2,8 @@ import { PriceServiceTable } from '@/features/prices-services'
 import services from '@/shared/api/db/services'
 import { BenefitCard } from '@/shared/ui/benefits/BenefitCard'
 import { ButtonMain } from '@/shared/ui/buttons'
-import { ChevronRightIcon } from '@heroicons/react/24/outline'
+import { ReviewSwiper } from '@/widgets/review-swiper'
+import { ArrowLongRightIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { Link, useParams } from 'react-router-dom'
 
 export function ServicePage() {
@@ -67,8 +68,6 @@ export function ServicePage() {
           </div>
         </div>
       </div>
-      {// -------------------------------------//
-      }
       <div
         className="mx-auto my-24 max-w-[1440px] px-5 lg:mb-28 lg:mt-32 xl:px-[150px]"
       >
@@ -82,29 +81,6 @@ export function ServicePage() {
             Ціни
           </h1>
         </div>
-
-        {/* <div
-          className="mb-4 w-full rounded-2xl border border-slate-300 bg-white p-1.5 [filter:_drop-shadow(0px_4px_8px_rgba(0,_0,_0,_0.06))_drop-shadow(0px_0px_4px_rgba(0,_0,_0,_0.04))] md:mb-5"
-        >
-          <div
-            className="flex rounded-t-2xl bg-[#EAEDF2] text-sm font-medium tracking-[0.28px] text-gray-900"
-          >
-            <p className="block w-full max-w-[710px] p-3 md:hidden">
-              Ціни на послуги
-            </p>
-            <p className="hidden w-full max-w-[710px] p-3 md:block">Назва послуги</p>
-            <div className="flex w-full max-w-[418px]">
-              <p className="hidden w-full max-w-[266px] p-3 md:block">
-                Тривалість робот
-              </p>
-              <p className="hidden w-full max-w-[152px] p-3 md:block">Вартість</p>
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-b-2xl">
-
-          </div>
-        </div> */}
-
         <PriceServiceTable price={service?.prices || []} />
         <p className=" text-sm leading-6 text-gray-900">
           * Всі ціни і тривалість робіт вказані приблизні. Щоб дізнатись точну
@@ -117,8 +93,6 @@ export function ServicePage() {
         </p>
 
       </div>
-      {// -------------------------------------//
-      }
 
       <div className="bg-[#FBFDFF] py-24 lg:py-[120px]">
         <div className="container">
@@ -141,10 +115,43 @@ export function ServicePage() {
           </div>
           <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
             {BenefitsArray}
-
-            {/* {{>AdvantageCard}} {{>AdvantageCard}} {{>AdvantageCard}} */}
-            {/* {{>AdvantageCard}} {{>AdvantageCard}} {{>AdvantageCard}} */}
-            {/* {{>AdvantageCard}} {{>AdvantageCard}} */}
+          </div>
+        </div>
+      </div>
+      <div
+        className="py-[95px] [background:_linear-gradient(0deg,_rgba(36,_109,_239,_0.50)_0%,_rgba(36,_109,_239,_0.50)_100%),_url('/src/shared/assets/blueWavesBg.png'),_lightgray_0px_-73.061px_/_100%_129.949%_no-repeat;] lg:py-[120px]"
+      >
+        <div className="mx-auto max-w-[1440px] px-5 xl:px-[150px]">
+          <div className="mb-6 flex items-start justify-between">
+            <div className="flex items-center">
+              <div className="mr-4 flex items-center gap-3">
+                <div className="paragraphIcon mr-3 rounded-full bg-white p-2 text-2xl">
+                  💬
+                </div>
+                <h1
+                  className="font-jakarta text-3xl font-bold leading-normal text-white lg:text-big lg:leading-extra-height"
+                >
+                  Відгуки наших клієнтів
+                </h1>
+              </div>
+              <a
+                href="/reviews/"
+                className="group items-center gap-1 pt-3 flex"
+              >
+                <p
+                  className="whitespace-nowrap text-xs font-bold text-white transition-colors duration-300 group-hover:text-zinc-100"
+                >
+                  Всі відгуки
+                </p>
+                <ArrowLongRightIcon className="size-5 text-white" />
+              </a>
+            </div>
+            <ButtonMain variant="white">
+              Залишити відгук
+            </ButtonMain>
+          </div>
+          <div className="lg:block">
+            <ReviewSwiper />
           </div>
         </div>
       </div>
