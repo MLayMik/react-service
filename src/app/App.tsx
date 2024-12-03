@@ -11,7 +11,7 @@ import { Contacts } from '../pages/contact'
 import { HomePage } from '../pages/home'
 import { LoginPage } from '../pages/login'
 import { Profile, ProfileFavorite, ProfileHome, ProfileInfo, ProfileOrders } from '../pages/profile'
-import { Services } from '../pages/services'
+import { ServicePage, Services } from '../pages/services'
 import { Layout } from './layouts'
 
 function App() {
@@ -28,12 +28,15 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="catalog" element={<Catalog />} />
-        <Route path="services" element={<Services />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="reviews" element={<Reviews />} />
         <Route path="articles">
           <Route index element={<Articles />} />
           <Route path=":id" element={<Article />} />
+        </Route>
+        <Route path="services">
+          <Route index element={<Services />} />
+          <Route path=":id" element={<ServicePage />} />
         </Route>
         <Route path="cart" element={<CartPage />} />
         <Route path="about-us" element={<AboutUs />}></Route>

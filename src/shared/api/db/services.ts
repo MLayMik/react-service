@@ -16,7 +16,7 @@ eiusmod tempor incididunt ut labore et dolore magna aliqua.`
 
 const prices: z.infer<typeof PriceSchema>[] = [
   {
-    name: 'Заміна поршнів на двигунах Scania R-Series 4x2 2016 DC13 146',
+    name: 'Заміна поршнів на двигунах Scania R-Series 4x2 2016 DC13 1461',
     duration: { min: 2, max: 3 },
     price: 25500,
   },

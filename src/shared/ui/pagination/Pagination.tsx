@@ -1,4 +1,4 @@
-import { cn } from '@/shared/lib'
+import { cn } from '@/shared/lib/utils'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'

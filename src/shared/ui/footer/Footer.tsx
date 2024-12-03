@@ -1,5 +1,5 @@
 import logo from '@/shared/assets/Logo.svg'
-import { cn } from '@/shared/lib'
+import { cn } from '@/shared/lib/utils'
 import { Link, NavLink } from 'react-router-dom'
 import { links } from './config'
 

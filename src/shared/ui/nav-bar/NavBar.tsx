@@ -1,4 +1,4 @@
-import { cn } from '@/shared/lib'
+import { cn } from '@/shared/lib/utils'
 import { NavLink } from 'react-router-dom'
 import { links } from './config'
 

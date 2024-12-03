@@ -233,17 +233,12 @@ export function AboutUs() {
                 <ArrowLongRightIcon className="size-5 text-white" />
               </a>
             </div>
-            <ButtonMain variant='white'>
+            <ButtonMain variant="white">
               Залишити відгук
             </ButtonMain>
           </div>
-          {/* {{>ReviewModal}} */}
           <div className="hidden lg:block">
             <ReviewSwiper />
-            {/* {{>ReviewsSwiper}} */}
-          </div>
-          <div className="mb-7 flex w-full flex-col gap-4 lg:hidden">
-            {/* {{>ReviewCard}} {{>ReviewCard}} */}
           </div>
           <div className="flex w-full flex-col items-center gap-7 lg:hidden">
             <Link
