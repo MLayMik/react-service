@@ -91,7 +91,6 @@ export function ServicePage() {
             <a href="tel:+380930000000">+38 (093) 000-00-00 </a>
           </span>
         </p>
-
       </div>
 
       <div className="bg-[#FBFDFF] py-24 lg:py-[120px]">

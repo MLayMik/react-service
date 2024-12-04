@@ -1,5 +1,3 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
-
 interface Duration {
   min: number | null
   max: number | null
@@ -17,77 +15,45 @@ interface PriceServiceTableProps {
 
 export function PriceServiceTable({ price }: PriceServiceTableProps) {
   return (
-    <TableContainer
-      component={Paper}
-      sx={{
-        'marginBottom': '1rem',
-        'width': '100%',
-        'borderRadius': '16px',
-        'border': '1px solid #e2e8f0',
-        'backgroundColor': 'white',
-        'padding': '1em',
-        'filter': 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.06)) drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.04))',
-        '@media (min-width: 768px)': {
-          marginBottom: '1.25rem',
-        },
-      }}
+    <div
+      className="mb-4 text-sm w-full rounded-2xl border border-slate-300 bg-white p-1.5 [filter:_drop-shadow(0px_4px_8px_rgba(0,_0,_0,_0.06))_drop-shadow(0px_0px_4px_rgba(0,_0,_0,_0.04))] md:mb-5"
     >
-      <Table
-        aria-label="customized table"
+      <div
+        className="flex rounded-t-2xl bg-[#EAEDF2] text-sm font-medium tracking-[0.28px] text-gray-900"
       >
-        <TableHead>
-          <TableRow
-            sx={{
-              borderRadius: '16px',
-              width: '100%',
-              backgroundColor: '#EAEDF2',
-              fontSize: '0.875rem',
-              fontWeight: '500',
-              letterSpacing: '0.28px',
-              color: '#1F2937',
-            }}
+        <p className="block w-full max-w-[710px] p-3 md:hidden">
+          Ціни на послуги
+        </p>
+        <p className="hidden w-full max-w-[710px] p-3 md:block">Назва послуги</p>
+        <div className="flex w-full max-w-[418px]">
+          <p className="hidden w-full max-w-[266px] p-3 md:block">
+
+          </p>
+          <p className="hidden w-full max-w-[152px] p-3 md:block">Вартість</p>
+        </div>
+      </div>
+      <div>
+        {price.map((priceItem, index) => (
+          <div
+            key={priceItem.name}
+            className={`py-2 tracking-[0.32px] text-gray-900 md:flex ${
+              index % 2 === 0 ? 'bg-white' : 'bg-gray-100'
+            }`}
           >
-            <TableCell
-              sx={{
-                width: '100%',
-                maxWidth: '710px',
-                padding: '0.75rem',
-              }}
-            >
-              Назва послуги
-            </TableCell>
+            <p className="w-full max-w-[710px] p-3 font-medium">{priceItem.name}</p>
+            <div className="flex w-full max-w-[418px]">
+              <p className="w-full max-w-[266px] p-3">
 
-            <TableCell
-              align="right"
-              sx={{
-                width: '100%',
-                maxWidth: '152px',
-                padding: '0.75rem',
-              }}
-            >
-              Вартість
-            </TableCell>
-          </TableRow>
-        </TableHead>
-
-        <TableBody>
-          {price.map(priceItem => (
-            <TableRow key={priceItem.name}>
-              <TableCell
-                sx={{
-                  py: 2,
-                  letterSpacing: '0.32px',
-                  color: 'text.primary',
-                  display: { xs: 'block', md: 'flex' },
-                }}
-              >
-                {priceItem.name}
-              </TableCell>
-              <TableCell align="right">{priceItem.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+              </p>
+              <p className="w-full max-w-[152px] p-3">
+                {priceItem.price}
+                {' '}
+                &#8372;
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
