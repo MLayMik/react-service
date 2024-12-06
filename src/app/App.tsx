@@ -1,5 +1,6 @@
 import { Article, Articles } from '@/pages/articles'
 import { CartPage } from '@/pages/cart'
+import { ProductPage } from '@/pages/product/'
 import { RegisterPage } from '@/pages/register'
 import { Reviews } from '@/pages/reviews'
 import { useEffect } from 'react'
@@ -28,6 +29,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="catalog" element={<Catalog />} />
+        <Route path="product/:code" element={<ProductPage />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="reviews" element={<Reviews />} />
         <Route path="articles">
@@ -57,7 +59,6 @@ function App() {
           <Route path="favorite" element={<ProfileFavorite />} />
           <Route path="orders" element={<ProfileOrders />} />
         </Route>
-
       </Route>
     </Routes>
   )

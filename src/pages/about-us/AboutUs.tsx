@@ -14,184 +14,182 @@ import { Link } from 'react-router-dom'
 export function AboutUs() {
   return (
     <>
-      <div className="max-w-[1440px] mx-auto font-montserrat">
-        <div className="container">
-          <div
-            className="mb-8 flex items-center gap-1 text-xs text-gray-900 transition-colors duration-300 hover:text-gray-950 md:mb-10"
-          >
-            <Link to="/" className="opacity-50">
-              Головна
-            </Link>
-            <ChevronRightIcon className="size-4" />
-            <p className="cursor-pointer">Про нас</p>
-          </div>
-          <div
-            className="mb-28 flex flex-col items-center justify-between gap-5 lg:flex-row"
-          >
-            <div className="flex flex-col gap-5">
-              <div className="flex items-center gap-3">
-                <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
-                  🙌
-                </div>
-                <h1
-                  className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
-                >
-                  Про нас
-                </h1>
+      <div className="container">
+        <div
+          className="mb-8 flex items-center gap-1 text-xs text-gray-900 transition-colors duration-300 hover:text-gray-950 md:mb-10"
+        >
+          <Link to="/" className="opacity-50">
+            Головна
+          </Link>
+          <ChevronRightIcon className="size-4" />
+          <p className="cursor-pointer">Про нас</p>
+        </div>
+        <div
+          className="mb-28 flex flex-col items-center justify-between gap-5 lg:flex-row"
+        >
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center gap-3">
+              <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
+                🙌
               </div>
-              <p
-                className="max-w-xl text-xs leading-5 text-gray-900 lg:text-sm lg:leading-6"
+              <h1
+                className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
               >
-                Львівська Автобаза No1 вже понад 30 років надає транспортні послуги.
-                На нашій власній території ми маємо стоянку TIR, мийку шиномонтаж та
-                сервіс, де одночасно можемо обслуговувати до 10 машин. В основному
-                ми перевозимо вантажі по Євросоюзу та країнам Шенгенської зони. Наш
-                автопарк постійно збільшується та оновлюється. На сьогодні ми маємо
-                декілька десятків сучасних автомобілів стандарту євро-6 з різними
-                кузовами, причепами, завдяки чому наш автопарк завжди може бути
-                адаптований до потреб клієнта. На нашій базі ми маємо окрему
-                майстерню Tir-Service для ремонту наших транспортних засобів і
-                команду спеціалізованих автомеханіків, завдяки чому наші транспортні
-                засоби знаходяться на постійному технічному контролі і в справному
-                стані. Ми пишаємося професіоналізмом, підтвердженим багатьма
-                сертифікатами та нагородами, і відмінним штатом експедиторів та
-                інших спеціалістів.
-              </p>
-              <div className="flex items-center gap-2.5">
-                <h2 className="text-[40px] font-bold leading-[60px] text-blue-600">150</h2>
-                <p className="text-sm leading-6 text-gray-900">
-                  людей в команді
-                  {' '}
-                  <br />
-                  забезпечують успіх
-                </p>
-              </div>
+                Про нас
+              </h1>
             </div>
-            <img
-              className="w-full md:w-[500px] lg:w-auto"
-              src={aboutUsPhoto}
-              alt="about us image"
-            />
-          </div>
-        </div>
-        <div className="mb-20 bg-[#FBFDFF] py-24 md:mb-36 lg:py-[120px]">
-          <div className="container">
-            <div className="mb-6 flex items-start gap-0.5 md:mb-10">
-              <div className="paragraphIcon mr-3 rounded-full bg-white p-2 еуче-2чд">
-                🌟
-              </div>
-              <div>
-                <h1
-                  className="mb-3 font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
-                >
-                  Наші переваги
-                </h1>
-                <p className="max-w-[500px] text-sm leading-5 text-neutral-500/70">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra
-                  nunc ante velit vitae. Est tellus vitae, nullam lobortis enim.
-                  Faucibus amet etiam tincidunt.
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
-              {/* {{>AdvantageCard}} {{>AdvantageCard}} {{>AdvantageCard}} */}
-              {/* {{>AdvantageCard}} {{>AdvantageCard}} {{>AdvantageCard}} */}
-              {/* {{>AdvantageCard}} {{>AdvantageCard}} */}
-            </div>
-          </div>
-        </div>
-
-        <div className="container mb-24 md:mb-28">
-          <div className="mb-10 flex items-center gap-3">
-            <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
-              🛠️
-            </div>
-            <h1
-              className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
+            <p
+              className="max-w-xl text-xs leading-5 text-gray-900 lg:text-sm lg:leading-6"
             >
-              Наші майстри
-            </h1>
-          </div>
-          <div className="justify-center gap-5 md:flex">
-            <div className="flex flex-col gap-36">
-              <div className="flex flex-col gap-7">
-                <img
-                  src={personOne}
-                  className="rounded-2xl"
-                />
-                <div className="flex justify-between font-inter font-medium leading-small">
-                  <p className="text-neutral-800">Дмитро Евременко</p>
-                  <p className="text-slate-500">Електрик</p>
-                </div>
-                <hr />
-              </div>
-              <div className="flex flex-col gap-7">
-                <img
-                  src={personPrickly}
-                  className="rounded-2xl"
-                />
-                <div
-                  className="flex justify-between font-inter font-medium leading-small"
-                >
-                  <p className="text-neutral-800">Микола Заварев</p>
-                  <p className="text-slate-500">Майстер по ходовій</p>
-                </div>
-                <hr />
-              </div>
-              <div className="flex flex-col gap-7">
-                <img
-                  src={personBeard}
-                  className="rounded-2xl"
-                />
-                <div
-                  className="flex justify-between font-inter font-medium leading-small"
-                >
-                  <p className="text-neutral-800">Максим Захаров</p>
-                  <p className="text-slate-500">Електрик</p>
-                </div>
-                <hr />
-              </div>
+              Львівська Автобаза No1 вже понад 30 років надає транспортні послуги.
+              На нашій власній території ми маємо стоянку TIR, мийку шиномонтаж та
+              сервіс, де одночасно можемо обслуговувати до 10 машин. В основному
+              ми перевозимо вантажі по Євросоюзу та країнам Шенгенської зони. Наш
+              автопарк постійно збільшується та оновлюється. На сьогодні ми маємо
+              декілька десятків сучасних автомобілів стандарту євро-6 з різними
+              кузовами, причепами, завдяки чому наш автопарк завжди може бути
+              адаптований до потреб клієнта. На нашій базі ми маємо окрему
+              майстерню Tir-Service для ремонту наших транспортних засобів і
+              команду спеціалізованих автомеханіків, завдяки чому наші транспортні
+              засоби знаходяться на постійному технічному контролі і в справному
+              стані. Ми пишаємося професіоналізмом, підтвердженим багатьма
+              сертифікатами та нагородами, і відмінним штатом експедиторів та
+              інших спеціалістів.
+            </p>
+            <div className="flex items-center gap-2.5">
+              <h2 className="text-[40px] font-bold leading-[60px] text-blue-600">150</h2>
+              <p className="text-sm leading-6 text-gray-900">
+                людей в команді
+                {' '}
+                <br />
+                забезпечують успіх
+              </p>
             </div>
-            <div className="flex flex-col gap-36 pt-36">
-              <div className="flex flex-col gap-7">
-                <img
-                  src={personWithWheel}
-                  className="rounded-2xl"
-                />
-                <div
-                  className="flex justify-between font-inter font-medium leading-small"
-                >
-                  <p className="text-neutral-800">Володимир Матвієнко</p>
-                  <p className="text-slate-500">Майстер по ходовій</p>
-                </div>
-                <hr />
+          </div>
+          <img
+            className="w-full md:w-[500px] lg:w-auto"
+            src={aboutUsPhoto}
+            alt="about us image"
+          />
+        </div>
+      </div>
+      <div className="mb-20 bg-[#FBFDFF] py-24 md:mb-36 lg:py-[120px]">
+        <div className="container">
+          <div className="mb-6 flex items-start gap-0.5 md:mb-10">
+            <div className="paragraphIcon mr-3 rounded-full bg-white p-2 еуче-2чд">
+              🌟
+            </div>
+            <div>
+              <h1
+                className="mb-3 font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
+              >
+                Наші переваги
+              </h1>
+              <p className="max-w-[500px] text-sm leading-5 text-neutral-500/70">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra
+                nunc ante velit vitae. Est tellus vitae, nullam lobortis enim.
+                Faucibus amet etiam tincidunt.
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
+            {/* {{>AdvantageCard}} {{>AdvantageCard}} {{>AdvantageCard}} */}
+            {/* {{>AdvantageCard}} {{>AdvantageCard}} {{>AdvantageCard}} */}
+            {/* {{>AdvantageCard}} {{>AdvantageCard}} */}
+          </div>
+        </div>
+      </div>
+
+      <div className="container mb-24 md:mb-28">
+        <div className="mb-10 flex items-center gap-3">
+          <div className="paragraphIcon rounded-full bg-white p-2 text-2xl">
+            🛠️
+          </div>
+          <h1
+            className="font-jakarta text-3xl font-bold leading-normal text-gray-900 lg:text-big lg:leading-extra-height"
+          >
+            Наші майстри
+          </h1>
+        </div>
+        <div className="justify-center gap-5 md:flex">
+          <div className="flex flex-col gap-36">
+            <div className="flex flex-col gap-7">
+              <img
+                src={personOne}
+                className="rounded-2xl"
+              />
+              <div className="flex justify-between font-inter font-medium leading-small">
+                <p className="text-neutral-800">Дмитро Евременко</p>
+                <p className="text-slate-500">Електрик</p>
               </div>
-              <div className="flex flex-col gap-7">
-                <img
-                  src={person5}
-                  className="rounded-2xl"
-                />
-                <div
-                  className="flex justify-between font-inter font-medium leading-small"
-                >
-                  <p className="text-neutral-800">Олександр Симонов</p>
-                  <p className="text-slate-500">Моторист</p>
-                </div>
-                <hr />
+              <hr />
+            </div>
+            <div className="flex flex-col gap-7">
+              <img
+                src={personPrickly}
+                className="rounded-2xl"
+              />
+              <div
+                className="flex justify-between font-inter font-medium leading-small"
+              >
+                <p className="text-neutral-800">Микола Заварев</p>
+                <p className="text-slate-500">Майстер по ходовій</p>
               </div>
-              <div className="flex flex-col gap-7">
-                <img
-                  src={personBrutal}
-                  className="rounded-2xl"
-                />
-                <div
-                  className="flex justify-between font-inter font-medium leading-small"
-                >
-                  <p className="text-neutral-800">Дмитро Лисюк</p>
-                  <p className="text-slate-500">Моторист</p>
-                </div>
-                <hr />
+              <hr />
+            </div>
+            <div className="flex flex-col gap-7">
+              <img
+                src={personBeard}
+                className="rounded-2xl"
+              />
+              <div
+                className="flex justify-between font-inter font-medium leading-small"
+              >
+                <p className="text-neutral-800">Максим Захаров</p>
+                <p className="text-slate-500">Електрик</p>
               </div>
+              <hr />
+            </div>
+          </div>
+          <div className="flex flex-col gap-36 pt-36">
+            <div className="flex flex-col gap-7">
+              <img
+                src={personWithWheel}
+                className="rounded-2xl"
+              />
+              <div
+                className="flex justify-between font-inter font-medium leading-small"
+              >
+                <p className="text-neutral-800">Володимир Матвієнко</p>
+                <p className="text-slate-500">Майстер по ходовій</p>
+              </div>
+              <hr />
+            </div>
+            <div className="flex flex-col gap-7">
+              <img
+                src={person5}
+                className="rounded-2xl"
+              />
+              <div
+                className="flex justify-between font-inter font-medium leading-small"
+              >
+                <p className="text-neutral-800">Олександр Симонов</p>
+                <p className="text-slate-500">Моторист</p>
+              </div>
+              <hr />
+            </div>
+            <div className="flex flex-col gap-7">
+              <img
+                src={personBrutal}
+                className="rounded-2xl"
+              />
+              <div
+                className="flex justify-between font-inter font-medium leading-small"
+              >
+                <p className="text-neutral-800">Дмитро Лисюк</p>
+                <p className="text-slate-500">Моторист</p>
+              </div>
+              <hr />
             </div>
           </div>
         </div>

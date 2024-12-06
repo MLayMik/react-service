@@ -13,15 +13,6 @@ const specs: z.infer<typeof SpecsSchema> = [
   { name: 'Поверхность', value: 'Промасленная' },
   { name: 'Тип', value: 'Вентилируемый' },
   { name: 'Масса нетто', value: '30,14 кг' },
-  { name: 'Товщина', value: '1/2: 45/131 мм' },
-  { name: 'Внешний калибр', value: '429 мм' },
-  { name: 'Резьба диска', value: 'M16 x 1,5' },
-  { name: 'Товщина', value: '1/2: 45/131 мм' },
-  { name: 'Внешний калибр', value: '429 мм' },
-  { name: 'Резьба диска', value: 'M16 x 1,5' },
-  { name: 'Поверхность', value: 'Промасленная' },
-  { name: 'Тип', value: 'Вентилируемый' },
-  { name: 'Масса нетто', value: '30,14 кг' },
 ]
 
 const full_description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
