@@ -10,18 +10,45 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-coverflow'
 
-export function ReviewSwiper() {
+interface ReviewProps {
+  customPagination?: string
+  bulletColor?: string
+  activeBulletColor?: string
+}
+
+export function ReviewSwiper({
+  customPagination = 'custom-pagination',
+  bulletColor = '#D2D2D2',
+  activeBulletColor = '#007bff',
+}: ReviewProps) {
   const swiperRef = useRef<SwiperType | null>(null)
 
   return (
     <>
+      <style>
+        {`
+          .${customPagination} .swiper-pagination-bullet {
+            background-color: ${bulletColor};
+            width: 10px;
+            height: 10px;
+            opacity: 0.6;
+            border-radius: 50%;
+            transition: opacity 0.3s, background-color 0.3s;
+          }
+
+          .${customPagination} .swiper-pagination-bullet-active {
+            background-color: ${activeBulletColor};
+            opacity: 1;
+          }
+        `}
+      </style>
       <Swiper
         loop
         spaceBetween={40}
         slidesPerView={2}
         onSwiper={swiper => (swiperRef.current = swiper)}
         className="p-5 mb-5"
-        pagination={{ el: '.custom-pagination', clickable: true }}
+        pagination={{ el: `.${customPagination}`, clickable: true }}
         modules={[Pagination]}
       >
         <SwiperSlide className="h-auto"><ReviewCard /></SwiperSlide>
@@ -38,7 +65,7 @@ export function ReviewSwiper() {
           </Sticker>
         </button>
         <div className="flex items-center">
-          <div className="custom-pagination"></div>
+          <div className={`flex items-center ${customPagination}`}></div>
         </div>
         <button onClick={() => swiperRef.current?.slideNext()}>
           <Sticker>

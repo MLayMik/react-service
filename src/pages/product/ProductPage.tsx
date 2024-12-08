@@ -2,6 +2,7 @@ import { AddToCart } from '@/features/add-to-cart'
 import { cn } from '@/lib/utils'
 import products from '@/shared/api/db/products'
 import star from '@/shared/assets/starIcon.svg'
+import { SwiperProduct } from '@/widgets/product-swiper'
 import { ReviewSwiper } from '@/widgets/review-swiper'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
@@ -176,9 +177,12 @@ export function ProductPage() {
                 <img src={star} alt="star" className="h-4 w-4 -ml-1" />
                 <img src={star} alt="star" className="h-4 w-4 -ml-1" />
                 <p className="whitespace-nowrap text-[10px] lg:text-xs">
-                  <span className="font-medium leading-5 text-blue-600">4.8</span>
+                  <span className="font-medium leading-5 text-blue-600">{product?.rate.rate}</span>
                   {' '}
-                  Count of rewievs
+                  (
+                  {product?.rate.quantity}
+                  {' '}
+                  відгуків)
                 </p>
               </div>
             </div>
@@ -266,7 +270,7 @@ export function ProductPage() {
         {description === 'reviews' && (
           <div
             id="reviwesTab"
-            className="tab mb-[84px]  lg:mb-[104px]"
+            className="tab mb-[84px] lg:mb-[104px]"
           >
             <div className="mb-8 items-center gap-3 md:flex">
               <p
@@ -278,7 +282,7 @@ export function ProductPage() {
                 <p
                   className="text-xs font-semibold leading-[30px] text-blue-600 md:text-base"
                 >
-                  Диск гальмівний Scania
+                  {product?.name}
                 </p>
                 <div className=" flex flex-wrap items-center">
                   <img src={star} alt="star" className="h-4 w-4" />
@@ -297,79 +301,17 @@ export function ProductPage() {
               </div>
             </div>
             <div>
-              <ReviewSwiper />
+              <ReviewSwiper bulletColor="#D2D2D2" activeBulletColor="#246DEF" />
             </div>
           </div>
         )}
-
       </div>
 
       <div className="mx-auto max-w-[1480px] overflow-hidden xl:px-[150px]">
         <div
           className="hotOffersSwiper mb-[100px] overflow-hidden p-5 lg:mb-[120px]"
         >
-          <div className="mb-9 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="paragraphIcon rounded-full bg-white p-2">
-                <img
-                  src="/src/assets/fireIcon.svg"
-                  alt="fireIcon"
-                />
-              </div>
-              <div
-                className="font-jakarta text-3xl font-bold leading-normal text-gray-900 md:text-big md:leading-extra-height"
-              >
-                Гарячі пропозиції
-              </div>
-            </div>
-            <div className="hidden h-10 gap-2.5 lg:flex">
-              <button
-                className="paragraphIcon prevOffer rounded-full bg-white p-2 transition-all duration-300 hover:scale-105 hover:bg-zinc-50"
-              >
-                <img
-                  className="h-6 w-6"
-                  src="/src/assets/chevronLeft.svg"
-                />
-              </button>
-              <button
-                className="paragraphIcon nextOffer rounded-full bg-white p-2 transition-all duration-300 hover:scale-105 hover:bg-zinc-50"
-              >
-                <img
-                  className="h-6 w-6"
-                  src="/src/assets/chevronRight.svg"
-                />
-              </button>
-            </div>
-          </div>
-          <div className="swiper-wrapper">
-            {/* <div className="swiper-slide">{{>ProductCard}}</div>
-            <div className="swiper-slide">{{>ProductCardLiked}}</div>
-            <div className="swiper-slide">{{>ProductCard}}</div>
-            <div className="swiper-slide">{{>ProductCard}}</div>
-            <div className="swiper-slide">{{>ProductCardLiked}}</div>
-            <div className="swiper-slide">{{>ProductCard}}</div>
-            <div className="swiper-slide">{{>ProductCard}}</div>
-            <div className="swiper-slide">{{>ProductCardLiked}}</div> */}
-          </div>
-          <div className="mt-5 flex items-end justify-center gap-5 lg:hidden">
-            <button
-              className="paragraphIcon prevOffer rounded-full bg-white p-2 transition-all duration-300 hover:scale-105 hover:bg-zinc-50"
-            >
-              <img
-                className="h-6 w-6"
-                src="/src/assets/chevronLeft.svg"
-              />
-            </button>
-            <div className="swiperOffer-pagination !relative !w-auto"></div>
-            <button
-              className="paragraphIcon nextOffer rounded-full bg-white p-2 transition-all duration-300 hover:scale-105 hover:bg-zinc-50"
-            >
-              <img
-                className="h-6 w-6"
-                src="/src/assets/chevronRight.svg"
-              />
-            </button>
-          </div>
+          <SwiperProduct />
         </div>
       </div>
     </div>

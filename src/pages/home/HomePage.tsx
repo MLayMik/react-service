@@ -39,7 +39,7 @@ export function HomePage() {
             </a>
           </div>
           <div className="grid grid-cols-2 gap-5">
-            { services.sort(() => 0.5 - Math.random()).slice(0, 6).map(service => <ServicesCard key={service.id} {...service} />)}
+            {services.sort(() => 0.5 - Math.random()).slice(0, 6).map(service => <ServicesCard key={service.id} {...service} />)}
           </div>
         </div>
         <div className="mb-20 bg-[#FBFDFF] py-20 lg:mb-36 lg:py-[120px]">
