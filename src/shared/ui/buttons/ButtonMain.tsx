@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/lib/utils/index'
 
 interface ButtonMainProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
