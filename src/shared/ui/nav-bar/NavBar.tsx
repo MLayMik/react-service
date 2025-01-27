@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils/index'
+import { cn } from '@/lib/utils'
 import { NavLink } from 'react-router-dom'
 import { links } from './config'
 
