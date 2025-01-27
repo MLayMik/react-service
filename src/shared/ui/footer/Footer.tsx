@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { links } from './config'
 
 export function Footer() {
-  return ( 
+  return (
     <div className="bg-[#F4F5F7] py-6 relative z-40 mt-auto">
       <div
         className="mx-auto max-w-[1440px] justify-between px-5 xl:flex 2xl:px-[150px]"
